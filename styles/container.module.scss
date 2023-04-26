@@ -1,0 +1,37 @@
+.coolLink{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &::before{
+        content: '< ';
+        visibility: hidden;
+        opacity: 0;
+        font-size: 18px;
+    }
+
+    &:hover::before{
+        visibility: visible;
+        opacity: 1;
+        margin:0 1px 0 1px;
+        color: #3B82F6;
+    }
+    &:hover{
+        color: #3B82F6; 
+        font-weight: bolder;
+    }
+
+    &::after{
+        content: '/>';
+        visibility: hidden;
+        opacity: 0;
+        font-size: 18px;
+    }
+
+    &:hover::after{
+        visibility: visible;
+        opacity: 1;
+        margin-left:4px;
+    }
+     
+}
