@@ -43,28 +43,34 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Sokol Paja – Developer, writer, creator.',
-    description: `Front-end developer, JavaScript enthusiast, and content creator.`,
+    title: 'Sokol Paja – Developer, Chess Player.',
+    description: `Front-end developer, JavaScript enthusiast, and content moderator.`,
     image: '',
     type: 'website',
     ...customMeta
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
+    <main className="bg-gray-50 dark:bg-gray-900 overflow-x-hidden overflow-y-auto">
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
-        <link rel="canonical" href={`https://leerob.io${router.asPath}`} />
+        <meta
+          property="og:url"
+          content={`https://codewithkoli.com${router.asPath}`}
+        />
+        <link
+          rel="canonical"
+          href={`https://codewithkoli.com${router.asPath}`}
+        />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Sokol Paja" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@leeerob" />
+        <meta name="twitter:site" content="@kolpaja" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
@@ -77,13 +83,13 @@ export default function Container(props) {
           <a href="#skip" className="skip-nav">
             Skip to content
           </a>
+
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <NavItem href="/" text="Home" />
             <NavItem href="/guestbook" text="Guestbook" />
             <NavItem href="/cwk" text="CodeWithKoli" />
             <NavItem href="/blog" text="Blog" />
-            <NavItem href="/snippets" text="Snippets" />
             <NavItem href="/myapps" text="My Apps" />
           </div>
           <button
@@ -129,6 +135,6 @@ export default function Container(props) {
         {children}
         <Footer />
       </main>
-    </div>
+    </main>
   );
 }
