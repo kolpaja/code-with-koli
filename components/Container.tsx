@@ -17,10 +17,8 @@ interface INavItem {
 }
 
 function NavItem({ href, text }: INavItem) {
-  console.log('🚀 ~ file: Container.tsx:18 ~ NavItem ~ href:', href);
   const router = useRouter();
   const isActive = router.asPath == href || href === '/';
-  console.log(href, isActive);
 
   return (
     <NextLink
@@ -99,7 +97,7 @@ export default function Container(props) {
               <NavItem href="/myapps" text="MyApps" />
             </ul>
           </div>
-          <Link href="/">
+          <Link href="/" className="visible md:hidden">
             <Image
               src={srcImg}
               width={36}
@@ -146,7 +144,7 @@ export default function Container(props) {
       </div>
       <div
         id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
+        className="flex flex-col  px-8 bg-gray-50 dark:bg-gray-900"
       >
         {children}
         <Footer />

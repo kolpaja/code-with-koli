@@ -1,12 +1,10 @@
 /**
  * @type {import('next').NextConfig}
  */
- module.exports = {
+module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'cdn.sanity.io'
-    ]
+    domains: ['cdn.sanity.io', 'github-readme-stats.vercel.app']
   },
   experimental: {
     fontLoaders: [

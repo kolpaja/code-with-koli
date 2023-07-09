@@ -1,5 +1,5 @@
 import 'styles/global.scss';
-
+import 'antd/dist/reset.css';
 import { ThemeProvider } from 'next-themes';
 // import { SessionProvider } from 'next-auth/react';
 import { Inter } from '@next/font/google';
@@ -11,7 +11,7 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps }
 }) {
-  const testss = []
+  const testss = [];
   return (
     // <SessionProvider session={session}>
     <ThemeProvider attribute="class">
