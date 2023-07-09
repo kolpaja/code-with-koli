@@ -1,13 +1,15 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
-import NextLink from 'next/link';
 import cn from 'classnames';
+import { useTheme } from 'next-themes';
+import Head from 'next/head';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import styles from 'styles/container.module.scss';
-
+import srcImg from 'assets/icons/src-code-cwk.png';
 import Footer from 'components/Footer';
 import MobileMenu from 'components/MobileMenu';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface INavItem {
   href: string;
@@ -16,19 +18,20 @@ interface INavItem {
 
 function NavItem({ href, text }: INavItem) {
   const router = useRouter();
-  const isActive = router.asPath === href;
+  const isActive = router.asPath == href || href === '/';
 
   return (
     <NextLink
       href={href}
       className={cn(
         isActive
-          ? 'font-semibold text-gray-800 dark:text-gray-200'
-          : 'font-normal text-gray-600 dark:text-gray-400',
-        'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
+          ? ' text-blue-500 underline decoration-wavy hover:decoration-solid'
+          : ' text-gray-600 dark:text-gray-400 ',
+        styles.coolLink,
+        ' hidden  p-1 sm:px-3 hover:underline hover:decoration-slice sm:py-2 rounded-lg transition-all'
       )}
     >
-      <span className={cn('capsize', styles.coolLink)}>{text}</span>
+      {text}
     </NextLink>
   );
 }
@@ -43,28 +46,34 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Sokol Paja – Developer, writer, creator.',
-    description: `Front-end developer, JavaScript enthusiast, and content creator.`,
+    title: 'Sokol Paja – Developer, Chess Player.',
+    description: `Front-end developer, JavaScript enthusiast, and content moderator.`,
     image: '',
     type: 'website',
     ...customMeta
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
+    <div className="bg-gray-50 dark:bg-gray-900 overflow-x-hidden overflow-y-auto">
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
-        <link rel="canonical" href={`https://leerob.io${router.asPath}`} />
+        <meta
+          property="og:url"
+          content={`https://codewithkoli.com${router.asPath}`}
+        />
+        <link
+          rel="canonical"
+          href={`https://codewithkoli.com${router.asPath}`}
+        />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Sokol Paja" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@leeerob" />
+        <meta name="twitter:site" content="@kolpaja" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
@@ -73,23 +82,34 @@ export default function Container(props) {
         )}
       </Head>
       <div className="flex flex-col justify-center px-8">
-        <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
+        <nav className="flex items-center justify-between gap-1 w-full relative max-w-3xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
           <a href="#skip" className="skip-nav">
             Skip to content
           </a>
-          <div className="ml-[-0.60rem]">
+
+          <div className="">
             <MobileMenu />
-            <NavItem href="/" text="Home" />
-            <NavItem href="/guestbook" text="Guestbook" />
-            <NavItem href="/cwk" text="CodeWithKoli" />
-            <NavItem href="/blog" text="Blog" />
-            <NavItem href="/snippets" text="Snippets" />
-            <NavItem href="/myapps" text="My Apps" />
+            <ul className="hidden md:flex flex-row gap-1 items-stretch w-full">
+              <NavItem href="/" text="Home" />
+              <NavItem href="/guestbook" text="Guestbook" />
+              <NavItem href="/cwk" text="CWK" />
+              <NavItem href="/blog" text="Blog" />
+              <NavItem href="/myapps" text="MyApps" />
+            </ul>
           </div>
+          <Link href="/" className="visible md:hidden">
+            <Image
+              src={srcImg}
+              width={36}
+              height={36}
+              alt="source code icon @kolpaja"
+              className="dark:shadow-md dark:shadow-cyan-500 dark:rounded-md"
+            />
+          </Link>
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
+            className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300 dark:shadow-md dark:shadow-cyan-500 dark:rounded-full  transition-all"
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }
@@ -122,13 +142,13 @@ export default function Container(props) {
           </button>
         </nav>
       </div>
-      <main
+      <div
         id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
+        className="flex flex-col  px-8 bg-gray-50 dark:bg-gray-900"
       >
         {children}
         <Footer />
-      </main>
+      </div>
     </div>
   );
 }

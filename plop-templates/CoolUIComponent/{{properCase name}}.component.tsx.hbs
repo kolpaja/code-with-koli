@@ -4,10 +4,12 @@ interface {{properCase name}}Props {
 
 }
 
-const {{pascalCase name}}: FC<{{pascalCase name}}Props> = () => (
+const {{pascalCase name}}: FC<{{pascalCase name}}Props> = () => {
+  return(
   <div className={styles.{{camelCase name}}Wrapper}>
     <h2>{{pascalCase name}} component</h2>
   </div>
 );
+}
 
 export { {{pascalCase name}} };

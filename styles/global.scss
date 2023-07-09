@@ -12,6 +12,24 @@ html {
   scroll-behavior: smooth;
 }
 
+.dotted {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    black 2px,
+    transparent 0
+  );
+  background-size: -50px -30px;
+}
+
+.dotted:not(.light) {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(120, 113, 113) 2px,
+    transparent 0
+  );
+  background-size: 50px 30px;
+}
+
 #__next {
   @apply bg-gray-50 dark:bg-gray-900;
   display: flex;
@@ -213,4 +231,31 @@ table {
 
 .prose .callout > p {
   margin: 0 !important;
+}
+
+.gradientText {
+  background: #0ea8cf;
+  background: -webkit-linear-gradient(
+    to right,
+    #0ea8cf 18%,
+    #b513cf 50%,
+    #24f8ff 50%,
+    #0e4fcf 88%
+  );
+  background: -moz-linear-gradient(
+    to right,
+    #0ea8cf 18%,
+    #b513cf 50%,
+    #24f8ff 50%,
+    #0e4fcf 88%
+  );
+  background: linear-gradient(
+    to right,
+    #0ea8cf 18%,
+    #b513cf 50%,
+    #24f8ff 50%,
+    #0e4fcf 88%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

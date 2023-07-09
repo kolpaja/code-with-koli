@@ -1,0 +1,77 @@
+.githubStatsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width:100%;
+  
+
+  .githubStats{
+    width:100%;
+    height: 100%;
+    padding:0 10px;
+    position: relative;
+    
+    img{
+      @apply w-[340px] shadow-lg shadow-cyan-600 rounded-md md:w-[660px] h-full;
+      margin: 0   auto;
+    }
+  }
+
+  .langsStats{
+    width:100%;
+    height: 100%;
+    padding:0 10px;
+    position: relative;
+
+    img{
+      @apply w-[340px] md:w-[500px] shadow-lg shadow-cyan-600 rounded-md;
+      margin: 0   auto;
+    }
+  }
+
+  .startLine{
+    width: 30px;
+    height: 3px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background: linear-gradient(#1c1227, #a371f7 10%, #2744b8 70%, #224bd1 80%, #0a3a87);
+  }
+
+  .line1{
+    width: 3px;
+    height: 130px;
+    border-radius: 15px;
+    margin: 0 auto;
+    background: linear-gradient(#600abb, #a371f7 10%, #312075 70%, #5715af 80%, #7224ae);
+  }
+  .line2{
+    width: 3px;
+    height: 130px;
+    border-radius: 15px;
+    margin: 0 auto;
+    background: linear-gradient(#188f5b, #a371f7 10%, #2744b8 70%, #224bd1 80%, #0a3a87);
+  }
+
+  .githubIcon{
+    @apply animate-pulse;
+    margin: 5px auto;
+    font-size: 32px;
+    
+  }
+  .githubBlur{
+    filter: blur(4px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .pieIcon{
+    @apply animate-pulse text-blue-600;
+    margin: 5px auto;
+    font-size: 32px;
+  }
+  .timeIcon{
+    @apply animate-pulse text-cyan-600;
+    margin: 5px auto;
+    font-size: 32px;
+  }
+}
