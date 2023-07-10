@@ -31,7 +31,7 @@ const GithubStats: FC<GithubStatsProps> = () => {
     <CoolBox type="section" className={styles.githubStatsWrapper}>
       <CoolText
         type="h1"
-        className="text-2xl font-semibold flex justify-center items-center gap-1 text-blue-800"
+        className="text-lg text-center sm:text-2xl font-semibold flex justify-center items-center gap-1 text-blue-800"
       >
         <MdExplore className="text-3xl font-bold animate-spin text-blue-700 text-center" />{' '}
         Explore my everyday GitHub public stats

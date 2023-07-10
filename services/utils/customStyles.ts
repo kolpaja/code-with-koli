@@ -1,0 +1,1 @@
+export const iconStyleTimeline = 'text-3xl bg-gray-100 dark:bg-gray-900';

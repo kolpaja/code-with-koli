@@ -10,7 +10,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const CoolBox = ({ type, className, children }: Props) => {
+const CoolBox = ({ type = 'div', className, children }: Props) => {
   const themedStyles =
     'bg-gray-50  dark:bg-gray-900 text-gray-900 dark:text-gray-100';
 
