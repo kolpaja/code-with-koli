@@ -4,14 +4,33 @@ import { Hero } from 'components/Hero';
 import { Timeline } from 'components/Timeline';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import { Suspense } from 'react';
+import { dehydrate, QueryClient } from '@tanstack/react-query';
+import {
+  CwkEntityResponse,
+  GetPageData,
+  PublicationState,
+  useGetPageData
+} from 'generated/graphql';
+import { graphQLClient, queryClient } from 'services/queryClient';
+import { Projects } from 'components/Projects';
 
 type HomeProps = {
-  data?: any;
+  cwk: CwkEntityResponse;
   isError?: boolean;
 };
 
-function Home({ data, isError }: HomeProps) {
-  console.log("🚀 ~ file: index.tsx:14 ~ Home ~ data, isError :", data, isError )
+function Home({ cwk }: HomeProps) {
+  console.log('🚀 ~ file: index.tsx:15 ~ Home ~ props:', cwk);
+  const {
+    about_me,
+    description,
+    my_experience,
+    social_networks,
+    contact,
+    my_developed_apps,
+    my_spoken_languages
+  } = cwk?.data?.attributes;
+
   return (
     <Suspense fallback={null}>
       <Container>
@@ -20,9 +39,10 @@ function Home({ data, isError }: HomeProps) {
           <Hero />
 
           {/* my experiences brief intro to go to timeline journey  */}
-          <Timeline />
+          <Timeline experiences={my_experience} />
 
           {/* my developed apps  + projects */}
+          {/* <Projects projects={my_developed_apps} /> */}
 
           {/* github stats card */}
           <GithubStats />
@@ -41,9 +61,25 @@ function Home({ data, isError }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  await queryClient.prefetchQuery(['pageData'], () =>
+    useGetPageData.fetcher(graphQLClient, {})()
+  );
+
+  const fetchedPageData = await useGetPageData.fetcher(graphQLClient, {
+    publicationState: PublicationState.Live
+  })();
+
+  if (fetchedPageData && fetchedPageData.cwk) {
+    return {
+      props: {
+        cwk: fetchedPageData.cwk,
+        isError: false
+      }
+    };
+  }
+
   return {
     props: {
-      data: [],
       isError: true
     }
   };

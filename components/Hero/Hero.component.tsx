@@ -82,11 +82,11 @@ const Hero: FC<HeroProps> = () => {
             src={webdev}
             width={300}
             height={200}
-            alt="@kolpaja sokol paja web developer profile photo"
+            alt="@kolpaja sokol paja web developer"
           />
           {/* img profile */}
           <Image
-            className="absolute top-24 md:top-10 left-4 md:left-28 z-20  rounded-full ring-2 ring-cyan-600 shadow-lg shadow-cyan-600 skew-x-3 md:-skew-x-6 skew-y-3 md:-skew-y-6 origin-[93%_95%]"
+            className="absolute top-24 md:top-10 -left-4 md:left-28 z-20  rounded-full ring-2 ring-cyan-600 shadow-lg shadow-cyan-600 skew-x-3 md:-skew-x-6 skew-y-3 md:-skew-y-6 origin-[93%_95%]"
             src={kolpajaProfileImg}
             width={300}
             height={200}
