@@ -1,4 +1,4 @@
-query getPageData($publicationState: PublicationState = LIVE){
+  query getPageData($publicationState: PublicationState = LIVE){
   cwk(publicationState: $publicationState){
     data{
       id

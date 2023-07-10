@@ -268,3 +268,17 @@ table {
 .ant-timeline-item-tail{
   @apply bg-gray-900 dark:bg-gray-100;
 }
+
+.css-blurry-gradient {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 800px;
+  height: 800px;
+	border-radius: 50% 22% 40% 80%;  
+	filter: blur(100px);
+  background: radial-gradient(circle at 50% 50%,rgba(76, 0, 255, 1), rgba(76, 0, 255, 0));
+  opacity: 0.2;
+  z-index: 0;
+}

@@ -12,6 +12,7 @@ import {
   useGetPageData
 } from 'generated/graphql';
 import { graphQLClient, queryClient } from 'services/queryClient';
+import { Projects } from 'components/Projects';
 
 type HomeProps = {
   cwk: CwkEntityResponse;
@@ -41,6 +42,7 @@ function Home({ cwk }: HomeProps) {
           <Timeline experiences={my_experience} />
 
           {/* my developed apps  + projects */}
+          {/* <Projects projects={my_developed_apps} /> */}
 
           {/* github stats card */}
           <GithubStats />

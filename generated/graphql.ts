@@ -101,7 +101,6 @@ export type AboutInput = {
 export type App = {
   __typename?: 'App';
   CTA?: Maybe<Array<Maybe<ComponentBlocksCta>>>;
-  blog_post?: Maybe<PostEntityResponse>;
   code?: Maybe<Scalars['String']['output']>;
   coding_techs?: Maybe<CodingTechRelationResponseCollection>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
@@ -150,7 +149,6 @@ export type AppEntityResponseCollection = {
 export type AppFiltersInput = {
   CTA?: InputMaybe<ComponentBlocksCtaFiltersInput>;
   and?: InputMaybe<Array<InputMaybe<AppFiltersInput>>>;
-  blog_post?: InputMaybe<PostFiltersInput>;
   code?: InputMaybe<StringFilterInput>;
   coding_techs?: InputMaybe<CodingTechFiltersInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
@@ -168,7 +166,6 @@ export type AppFiltersInput = {
 
 export type AppInput = {
   CTA?: InputMaybe<Array<InputMaybe<ComponentBlocksCtaInput>>>;
-  blog_post?: InputMaybe<Scalars['ID']['input']>;
   code?: InputMaybe<Scalars['String']['input']>;
   coding_techs?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   description?: InputMaybe<Scalars['String']['input']>;
@@ -496,19 +493,10 @@ export type CodingTech = {
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   label?: Maybe<Scalars['String']['output']>;
   link?: Maybe<Scalars['String']['output']>;
-  my_developed_apps?: Maybe<AppRelationResponseCollection>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   react_icons_string: Scalars['String']['output'];
   short_desc?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-
-export type CodingTechMy_Developed_AppsArgs = {
-  filters?: InputMaybe<AppFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type CodingTechEntity = {
@@ -534,7 +522,6 @@ export type CodingTechFiltersInput = {
   id?: InputMaybe<IdFilterInput>;
   label?: InputMaybe<StringFilterInput>;
   link?: InputMaybe<StringFilterInput>;
-  my_developed_apps?: InputMaybe<AppFiltersInput>;
   not?: InputMaybe<CodingTechFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<CodingTechFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
@@ -546,7 +533,6 @@ export type CodingTechFiltersInput = {
 export type CodingTechInput = {
   label?: InputMaybe<Scalars['String']['input']>;
   link?: InputMaybe<Scalars['String']['input']>;
-  my_developed_apps?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   react_icons_string?: InputMaybe<Scalars['String']['input']>;
   short_desc?: InputMaybe<Scalars['String']['input']>;
