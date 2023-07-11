@@ -7,6 +7,7 @@ import { Router, useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { useEffect } from 'react';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 // import { SessionProvider } from 'next-auth/react';
 // import { Analytics } from '@vercel/analytics/react';
 
@@ -65,6 +66,7 @@ export default function App({
           <Component {...pageProps} />
           {/* <Analytics /> */}
         </main>
+        <ReactQueryDevtools />
       </QueryClientProvider>
     </ThemeProvider>
     // </SessionProvider>

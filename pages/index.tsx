@@ -13,6 +13,7 @@ import {
 } from 'generated/graphql';
 import { graphQLClient, queryClient } from 'services/queryClient';
 import { Projects } from 'components/Projects';
+import { AboutMe } from '../components/AboutMe/AboutMe.component';
 
 type HomeProps = {
   cwk: CwkEntityResponse;
@@ -54,6 +55,7 @@ function Home({ cwk }: HomeProps) {
           {/* some contacts  */}
 
           {/* more about me  */}
+          <AboutMe aboutMe={about_me} />
         </section>
       </Container>
     </Suspense>

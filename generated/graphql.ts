@@ -3547,7 +3547,7 @@ export type GetPageDataVariables = Exact<{
 }>;
 
 
-export type GetPageData = { __typename?: 'Query', cwk?: { __typename?: 'CwkEntityResponse', data?: { __typename?: 'CwkEntity', id?: string | null, attributes?: { __typename?: 'Cwk', title?: string | null, description?: string | null, about_me?: string | null, social_networks?: Array<{ __typename?: 'ComponentSharedSocialNetworks', id: string, name?: string | null, showOnPage: boolean, href?: string | null, display_name?: string | null, icon: string } | null> | null, my_experience?: Array<{ __typename?: 'ComponentCwkJobExperience', id: string, company?: string | null, position?: string | null, isCurrent: boolean, description?: string | null, techs_used?: string | null, color_hashtag?: string | null, icon?: string | null } | null> | null } | null } | null } | null };
+export type GetPageData = { __typename?: 'Query', cwk?: { __typename?: 'CwkEntityResponse', data?: { __typename?: 'CwkEntity', id?: string | null, attributes?: { __typename?: 'Cwk', title?: string | null, description?: string | null, about_me?: string | null, my_developed_apps?: { __typename?: 'AppRelationResponseCollection', data: Array<{ __typename?: 'AppEntity', attributes?: { __typename?: 'App', name?: string | null, description?: string | null, slug?: string | null, isLive?: boolean | null, type?: Enum_App_Type | null, coding_techs?: { __typename?: 'CodingTechRelationResponseCollection', data: Array<{ __typename?: 'CodingTechEntity', attributes?: { __typename?: 'CodingTech', label?: string | null, react_icons_string: string } | null }> } | null, CTA?: Array<{ __typename?: 'ComponentBlocksCta', id: string, title?: string | null, href?: string | null, target?: Enum_Componentblockscta_Target | null, subtitle?: string | null } | null> | null, img?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', alternativeText?: string | null, url: string, formats?: any | null } | null } | null } | null } | null }> } | null, social_networks?: Array<{ __typename?: 'ComponentSharedSocialNetworks', id: string, name?: string | null, showOnPage: boolean, href?: string | null, display_name?: string | null, icon: string } | null> | null, my_experience?: Array<{ __typename?: 'ComponentCwkJobExperience', id: string, company?: string | null, position?: string | null, started_date?: any | null, end_date?: any | null, isCurrent: boolean, description?: string | null, techs_used?: string | null, icon?: string | null } | null> | null } | null } | null } | null };
 
 
 export const GetPageDataDocument = `
@@ -3558,6 +3558,41 @@ export const GetPageDataDocument = `
       attributes {
         title
         description
+        my_developed_apps {
+          data {
+            attributes {
+              name
+              description
+              slug
+              isLive
+              type
+              coding_techs {
+                data {
+                  attributes {
+                    label
+                    react_icons_string
+                  }
+                }
+              }
+              CTA {
+                id
+                title
+                href
+                target
+                subtitle
+              }
+              img {
+                data {
+                  attributes {
+                    alternativeText
+                    url
+                    formats
+                  }
+                }
+              }
+            }
+          }
+        }
         social_networks {
           id
           name
@@ -3571,10 +3606,11 @@ export const GetPageDataDocument = `
           id
           company
           position
+          started_date
+          end_date
           isCurrent
           description
           techs_used
-          color_hashtag
           icon
         }
       }
