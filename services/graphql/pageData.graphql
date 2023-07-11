@@ -1,11 +1,46 @@
-  query getPageData($publicationState: PublicationState = LIVE){
-  cwk(publicationState: $publicationState){
-    data{
+query getPageData($publicationState: PublicationState = LIVE) {
+  cwk(publicationState: $publicationState) {
+    data {
       id
-      attributes{
+      attributes {
         title
         description
-        social_networks{
+        my_developed_apps {
+          data {
+            attributes {
+              name
+              description
+              slug
+              isLive
+              type
+              coding_techs {
+                data {
+                  attributes {
+                    label
+                    react_icons_string
+                  }
+                }
+              }
+              CTA {
+                id
+                title
+                href
+                target
+                subtitle
+              }
+              img {
+                data {
+                  attributes {
+                    alternativeText
+                    url
+                    formats
+                  }
+                }
+              }
+            }
+          }
+        }
+        social_networks {
           id
           name
           showOnPage
@@ -14,14 +49,15 @@
           icon
         }
         about_me
-        my_experience{
+        my_experience {
           id
           company
           position
+          started_date
+          end_date
           isCurrent
           description
           techs_used
-          color_hashtag
           icon
         }
       }

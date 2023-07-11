@@ -1,12 +1,11 @@
-import { MdExplore } from 'react-icons/md';
-import { GiBackwardTime } from 'react-icons/gi';
-import { TiChartPie } from 'react-icons/ti';
-import { AiFillGithub } from 'react-icons/ai';
-import { FC } from 'react';
-import styles from './GithubStats.module.scss';
-import { useTheme } from 'next-themes';
 import CoolBox from 'components/cool-ui/CoolBox';
 import CoolText from 'components/cool-ui/CoolText';
+import { FC } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import { GiBackwardTime } from 'react-icons/gi';
+import { MdExplore } from 'react-icons/md';
+import { TiChartPie } from 'react-icons/ti';
+import styles from './GithubStats.module.scss';
 
 interface GithubStatsProps {}
 
@@ -22,9 +21,6 @@ const wakaurl =
   'https://github-readme-stats.vercel.app/api/wakatime?username=kolpaja&custom_title=Coding%20Time%20Stats%20since%207-July-2023&theme=transparent';
 
 const GithubStats: FC<GithubStatsProps> = () => {
-  const { resolvedTheme } = useTheme();
-  console.log('styles.githubStatsWrapper', resolvedTheme);
-
   const options = `&show_icons=true&theme=transparent&hide=issues&show=[]&include_all_commits=true&rank_icon=github`;
 
   return (
@@ -58,7 +54,7 @@ const GithubStats: FC<GithubStatsProps> = () => {
       <div className={styles.langsStats}>
         <img
           src={mostUsedLangsUrl}
-          alt="sokol paja most used programming languages"
+          alt="sokol paja's most used programming languages"
         />
       </div>
 
@@ -69,7 +65,7 @@ const GithubStats: FC<GithubStatsProps> = () => {
 
       {/* WAKA coding time box */}
       <div className={styles.langsStats}>
-        <img src={wakaurl} alt="sokol paja most used programming languages" />
+        <img src={wakaurl} alt="sokol paja waka coding time" />
       </div>
     </CoolBox>
   );

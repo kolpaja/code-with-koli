@@ -1,0 +1,22 @@
+# humanstxt.org/
+# The humans 👨‍💻 responsible & technology colophon
+
+# TEAM 🤲
+
+    FrontEnd Developer: CWK Team - Sokol Paja
+    Site: https://codewithkoli.com
+    Contact: kol.paja [@] gmail.com
+    Location: Tirane, Albania
+    Instagram: @kolpaja
+    Twitter: @kolpaja28
+
+
+# TECHNOLOGY ⚙️
+
+    Language: English (Albanian)
+    Last update: 2023/11/7
+    Doctype: HTML5
+    Software: Visual Studio Code
+    Standards:  HTML5, CSS3, SCSS, Next Js, React Js, Strapi CMS
+    Components: Typescript, Graphql, React Query
+

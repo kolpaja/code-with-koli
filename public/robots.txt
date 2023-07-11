@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://blog.theboatapp.com
+
+# Sitemaps
+Sitemap: https://blog.theboatapp.com/sitemap.xml
+Sitemap: https://blog.theboatapp.com/category/server-sitemap-index.xml
+Sitemap: https://blog.theboatapp.com/tag/server-sitemap-index.xml
+Sitemap: https://blog.theboatapp.com/news/server-sitemap-index.xml
+Sitemap: https://blog.theboatapp.com/sitemaps/server-sitemap-0.xml

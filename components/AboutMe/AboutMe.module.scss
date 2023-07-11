@@ -1,3 +1,22 @@
-.aboutMeWrap {
-  background-color: cyan;
+.aboutMeWrapper {
+  @apply px-2 py-8 sm:px-6 sm:py-10;
+
+  section {
+    p{
+      @apply text-xl mb-6;
+      text-indent: 8px;
+
+      a{
+        @apply text-purple-800 decoration-slice;
+      }
+    }
+
+  
+    p {
+      &:first-child {
+        text-align: center;
+        margin-bottom: 12px;
+      }
+    }
+  }
 }
