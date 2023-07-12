@@ -12,6 +12,7 @@ import {
 import { graphQLClient, queryClient } from 'services/queryClient';
 import { Projects } from 'components/Projects';
 import { AboutMe } from '../components/AboutMe/AboutMe.component';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 type HomeProps = {
   cwk: CwkEntityResponse;
@@ -20,6 +21,9 @@ type HomeProps = {
 
 function Home({ cwk }: HomeProps) {
   // console.log('🚀 ~ file: index.tsx:15 ~ Home ~ props:', cwk);
+  const { data: session, status } = useSession();
+  console.log('🚀 ~ file: index.tsx:25 ~ Home ~ session:', status, session);
+
   const {
     about_me,
     description,
