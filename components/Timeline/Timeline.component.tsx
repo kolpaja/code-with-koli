@@ -5,7 +5,7 @@ import CoolBox from 'components/cool-ui/CoolBox';
 import websiteBuilder from 'assets/illustrations/website-creator-bro.svg';
 import Image from 'next/image';
 import { ComponentCwkJobExperience } from 'generated/graphql';
-import { Timeline as AntTimeline, Grid,  Tag } from 'antd';
+import { Timeline as AntTimeline, Grid, Tag } from 'antd';
 import CoolText from 'components/cool-ui/CoolText';
 import getIcon from 'services/utils/getIcon';
 import { presetAntDColors } from 'services/utils/constants';

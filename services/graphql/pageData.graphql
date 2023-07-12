@@ -59,6 +59,7 @@ query getPageData($publicationState: PublicationState = LIVE) {
           description
           techs_used
           icon
+          color_hashtag
         }
       }
     }
