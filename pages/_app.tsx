@@ -8,7 +8,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { useEffect } from 'react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-// import { SessionProvider } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 // import { Analytics } from '@vercel/analytics/react';
 
 const interVariable = Inter();
@@ -59,7 +59,7 @@ export default function App({
     };
   }, [router.events, googleAnalyticsId]);
   return (
-    // <SessionProvider session={session}>
+    <SessionProvider session={session}>
     <ThemeProvider attribute="class">
       <QueryClientProvider client={queryClient}>
         <main className={interVariable.className}>
@@ -69,6 +69,6 @@ export default function App({
         <ReactQueryDevtools />
       </QueryClientProvider>
     </ThemeProvider>
-    // </SessionProvider>
+     </SessionProvider>
   );
 }
