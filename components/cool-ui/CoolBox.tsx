@@ -10,25 +10,47 @@ type Props = {
   children: React.ReactNode;
 };
 
-const CoolBox = ({ type = 'div', className, children }: Props) => {
+const CoolBox = ({ type = 'div', className, id, children }: Props) => {
   const themedStyles =
     'bg-gray-50  dark:bg-gray-900 text-gray-900 dark:text-gray-100';
 
   switch (type) {
     case 'div':
-      return <div className={cn(themedStyles, className)}>{children}</div>;
+      return (
+        <div id={id} className={cn(themedStyles, className)}>
+          {children}
+        </div>
+      );
     case 'aside':
-      return <aside className={cn(themedStyles, className)}>{children}</aside>;
+      return (
+        <aside id={id} className={cn(themedStyles, className)}>
+          {children}
+        </aside>
+      );
     case 'section':
       return (
-        <section className={cn(themedStyles, className)}>{children}</section>
+        <section id={id} className={cn(themedStyles, className)}>
+          {children}
+        </section>
       );
     case 'nav':
-      return <nav className={cn(themedStyles, className)}>{children}</nav>;
+      return (
+        <nav id={id} className={cn(themedStyles, className)}>
+          {children}
+        </nav>
+      );
     case 'span':
-      return <span className={cn(themedStyles, className)}>{children}</span>;
+      return (
+        <span id={id} className={cn(themedStyles, className)}>
+          {children}
+        </span>
+      );
     default:
-      return <div className={cn(themedStyles, className)}>{children}</div>;
+      return (
+        <div id={id} className={cn(themedStyles, className)}>
+          {children}
+        </div>
+      );
   }
 };
 

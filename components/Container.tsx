@@ -46,6 +46,20 @@ export default function Container(props: ContainerProps) {
   const { children, meta } = props;
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState<Boolean>(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', (e) => {
+      if (window.scrollY > 255) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    });
+    return () => {
+      window.removeEventListener('scroll', () => {});
+    };
+  }, [isScrolled]);
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
@@ -67,7 +81,7 @@ export default function Container(props: ContainerProps) {
               <NavItem href="/guestbook" text="Guestbook" />
               <NavItem href="/cwk" text="CWK" />
               <NavItem href="/blog" text="Blog" />
-              <NavItem href="/myapps" text="MyApps" />
+              <NavItem href="/#projects" text="MyApps" />
             </ul>
           </div>
           <Link href="/" className="visible md:hidden">
@@ -80,9 +94,13 @@ export default function Container(props: ContainerProps) {
             />
           </Link>
           <button
+            title="Toggle Dark Mode"
             aria-label="Toggle Dark Mode"
             type="button"
-            className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300 dark:shadow-md dark:shadow-cyan-500 dark:rounded-full  transition-all"
+            className={cn(
+              isScrolled ? 'fixed bottom-5 md:top-5 right-4 z-50' : 'relative',
+              'w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300 dark:shadow-md dark:shadow-cyan-500 dark:rounded-full  transition-all'
+            )}
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }
@@ -93,7 +111,10 @@ export default function Container(props: ContainerProps) {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                className="w-5 h-5 text-gray-800 dark:text-gray-200"
+                className={cn(
+                  isScrolled ? 'absolute' : 'relative',
+                  'w-5 h-5 text-gray-800 dark:text-gray-200'
+                )}
               >
                 {resolvedTheme === 'dark' ? (
                   <path

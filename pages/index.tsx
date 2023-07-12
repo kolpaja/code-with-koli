@@ -4,10 +4,8 @@ import { Hero } from 'components/Hero';
 import { Timeline } from 'components/Timeline';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import { Suspense } from 'react';
-import { dehydrate, QueryClient } from '@tanstack/react-query';
 import {
   CwkEntityResponse,
-  GetPageData,
   PublicationState,
   useGetPageData
 } from 'generated/graphql';
@@ -21,7 +19,7 @@ type HomeProps = {
 };
 
 function Home({ cwk }: HomeProps) {
-  console.log('🚀 ~ file: index.tsx:15 ~ Home ~ props:', cwk);
+  // console.log('🚀 ~ file: index.tsx:15 ~ Home ~ props:', cwk);
   const {
     about_me,
     description,
@@ -36,25 +34,19 @@ function Home({ cwk }: HomeProps) {
     <Suspense fallback={null}>
       <Container>
         <section className="flex flex-col items-start max-w-7xl w-full border-gray-200 dark:border-gray-700 mx-auto pb-16">
-          {/* add hero component */}
           <Hero />
 
-          {/* my experiences brief intro to go to timeline journey  */}
           <Timeline experiences={my_experience} />
 
           {/* my developed apps  + projects */}
-          {/* <Projects projects={my_developed_apps} /> */}
+          <Projects projects={my_developed_apps} />
 
-          {/* github stats card */}
           <GithubStats />
 
           {/* some blogs */}
 
           {/* personal touch google for this, maybe some code pens things that i enjoy doing */}
 
-          {/* some contacts  */}
-
-          {/* more about me  */}
           <AboutMe aboutMe={about_me} />
         </section>
       </Container>

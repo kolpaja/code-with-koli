@@ -268,17 +268,19 @@ table {
 .ant-timeline-item-tail{
   @apply bg-gray-900 dark:bg-gray-100;
 }
+.ant-timeline.ant-timeline-alternate .ant-timeline-item-head{
+  border-radius: 100% !important;
+}
 
 .css-blurry-gradient {
   position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  width: 800px;
-  height: 800px;
+  top: 0;
+  transform: translate(-15%, -15%);
+  width: 48px;
+  height: 48px;
 	border-radius: 50% 22% 40% 80%;  
-	filter: blur(100px);
+	filter: blur(5px);
   background: radial-gradient(circle at 50% 50%,rgba(76, 0, 255, 1), rgba(76, 0, 255, 0));
-  opacity: 0.2;
-  z-index: 0;
+  opacity: 0.5;
+  z-index: -1;
 }

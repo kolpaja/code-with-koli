@@ -4,7 +4,10 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.sanity.io', 'github-readme-stats.vercel.app']
+    domains: [
+      'strapi-cwk.s3.eu-south-1.amazonaws.com',
+      'github-readme-stats.vercel.app'
+    ]
   },
   experimental: {
     fontLoaders: [
