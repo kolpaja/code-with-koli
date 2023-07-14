@@ -1,17 +1,24 @@
-import 'antd/dist/reset.css';
-import { ThemeProvider } from 'next-themes';
-import 'styles/global.scss';
-import { Inter } from '@next/font/google';
+import { Cookie, Inter } from '@next/font/google';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import 'antd/dist/reset.css';
+import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from 'next-themes';
 import { Router, useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { useEffect } from 'react';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { SessionProvider } from 'next-auth/react';
+import 'styles/global.scss';
+import cn from 'classnames';
 // import { Analytics } from '@vercel/analytics/react';
 
 const interVariable = Inter();
+
+const cookieFont = Cookie({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-cookie'
+});
 
 // Create a client
 const queryClient = new QueryClient();
@@ -60,15 +67,15 @@ export default function App({
   }, [router.events, googleAnalyticsId]);
   return (
     <SessionProvider session={session}>
-    <ThemeProvider attribute="class">
-      <QueryClientProvider client={queryClient}>
-        <main className={interVariable.className}>
-          <Component {...pageProps} />
-          {/* <Analytics /> */}
-        </main>
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    </ThemeProvider>
-     </SessionProvider>
+      <ThemeProvider attribute="class">
+        <QueryClientProvider client={queryClient}>
+          <main className={cn(interVariable.className, cookieFont.variable)}>
+            <Component {...pageProps} />
+            {/* <Analytics /> */}
+          </main>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </SessionProvider>
   );
 }
