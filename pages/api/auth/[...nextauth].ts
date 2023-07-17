@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthOptions, Session } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-const options: NextAuthOptions = {
+export const options: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -21,6 +21,9 @@ const options: NextAuthOptions = {
   },
   jwt: {
     secret: process.env.NEXTAUTH_SECRET
+  },
+  pages:{
+    signIn:'auth/signIn' 
   },
   debug: true,
   callbacks: {

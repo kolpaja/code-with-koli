@@ -6,7 +6,7 @@ import CoolText from 'components/cool-ui/CoolText';
 const EmptyGuestBook = () => {
   return (
     <div className="relative">
-      <CoolText type="h3" className="text-center">
+      <CoolText type="h3" className="text-center mx-auto">
         upss... no comments yet, Be the first to sign my guestbook 😊
       </CoolText>
       <Image

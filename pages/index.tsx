@@ -22,7 +22,7 @@ type HomeProps = {
 function Home({ cwk }: HomeProps) {
   // console.log('🚀 ~ file: index.tsx:15 ~ Home ~ props:', cwk);
   const { data: session, status } = useSession();
-  console.log('🚀 ~ file: index.tsx:25 ~ Home ~ session:', status, session);
+  // console.log('🚀 ~ file: index.tsx:25 ~ Home ~ session:', status, session);
 
   const {
     about_me,

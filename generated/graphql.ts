@@ -3769,6 +3769,7 @@ export const GetGuestBookDocument = `
   guestbooks(
     filters: {app_code: {eq: $appCode}}
     pagination: {pageSize: $pageSize}
+    sort: "createdAt:desc"
   ) {
     data {
       id

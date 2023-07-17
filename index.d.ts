@@ -5,5 +5,6 @@ declare module '@auth/core/jwt';
 export type AppCode = 'cwk' | 'aroma-landing' | 'point-food' | 'endry-2008';
 
 export type AppConfig = {
-  appCode: AppCode
-}
+  appCode: AppCode;
+  graphqlCmsUrl: string;
+};

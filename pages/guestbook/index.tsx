@@ -1,38 +1,35 @@
+import { TbMessage2Code } from 'react-icons/tb';
 import { FcGoogle } from 'react-icons/fc';
-import { AiFillGoogleCircle } from 'react-icons/ai';
-import { BiDotsVerticalRounded } from 'react-icons/bi';
-import { AiFillHeart } from 'react-icons/ai';
-import { FaFileSignature } from 'react-icons/fa';
 import { GiSpellBook } from 'react-icons/gi';
-import { Button, Form, Input, InputProps, Spin, message } from 'antd';
+import { Button, Skeleton, message } from 'antd';
 import Container from 'components/Container';
 import CoolBox from 'components/cool-ui/CoolBox';
 import CoolText from 'components/cool-ui/CoolText';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { useCallback, useMemo, useState } from 'react';
 import appConfig from 'appConfig';
-import { fetcher } from 'lib/api';
-import axios, { AxiosHeaders } from 'axios';
 import EmptyGuestBook from './components/EmptyGuestBook';
+import { useGetGuestBooks } from 'services/hooks/useGetGuestbooks';
+import SignItem from './components/SignItem';
+import GuestbookForm from './components/GuestbookForm';
 
 const { appCode } = appConfig;
 
 export default function GuestBook() {
   const { data: session, status, update } = useSession();
-  const [messageApi, contextHolder] = message.useMessage();
-  const [form] = Form.useForm();
 
   const meta = {
     title: 'Guestbook'
   };
-  console.log(
-    '🚀 ~ file: index.tsx:6 ~ GuestBook ~ session:',
-    session?.user,
-    status
-  );
 
-  // TODO get all guest books
-  let guestbooks = [];
+  // fetch guestbook signs
+  const {
+    data: allSigns,
+    isLoading: isLoadingSigns,
+    isError,
+    isFetched,
+    refetch
+  } = useGetGuestBooks({ appCode, pageSize: 100 });
 
   const getLabel = useCallback(() => {
     if (status === 'authenticated') {
@@ -43,82 +40,16 @@ export default function GuestBook() {
         </CoolText>
       );
     } else {
-      return 'Sing my GustBook';
+      return (
+        <CoolText type="h4" className="flex gap-1">
+          Sing my Guest Book, submit your <TbMessage2Code /> feedback
+        </CoolText>
+      );
     }
   }, [session, status]);
 
-  const getAuthIcon = useMemo(() => {
-    switch (status) {
-      case 'authenticated':
-        return (
-          <Button
-            htmlType="submit"
-            icon={
-              <FaFileSignature
-                className="text-xl text-gray-900 dark:text-gray-100"
-                title="sign"
-              />
-            }
-          />
-        );
-      case 'loading':
-        return <Spin size="small" />;
-      case 'unauthenticated':
-        return <Button onClick={() => signIn()}></Button>;
-      default:
-        break;
-    }
-  }, [status]);
-
-  const error = () => {
-    messageApi.open({
-      type: 'error',
-      content: 'Something wrong happened. Try again!'
-    });
-  };
-
-  const successForm = () => {
-    messageApi.open({
-      type: 'success',
-      content: 'Successfully added a comment ☺️'
-    });
-  };
-
-  const onFinish = async (values: any) => {
-    const commentSubmitData = {
-      comment: values.comment,
-      appCode
-    };
-    console.log('Success:', commentSubmitData, process.env.NEXT_PUBLIC_CMS_URL);
-    const result = await axios(
-      process.env.NEXT_PUBLIC_CMS_URL + '/api/guestbook/sign-guestbook',
-      {
-        method: 'Post',
-        headers: {
-          Authorization: session.accessToken as AxiosHeaders
-        },
-        data: {
-          ...commentSubmitData
-        }
-      }
-    );
-    console.log('result', { result });
-    if (result.status === 200) {
-      successForm();
-      form.resetFields();
-    } else {
-      error();
-    }
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-    error();
-  };
-
   return (
     <Container meta={meta}>
-      {contextHolder}
       <CoolBox type="div" className="flex flex-col justify-center">
         {/* header line */}
         <CoolBox type="div" className="w-full relative mb-8 h-10">
@@ -150,78 +81,35 @@ export default function GuestBook() {
                 login with Google
               </Button>
             ) : (
-              <Form
-                form={form}
-                name="guestbook-form"
-                labelCol={{ span: 8 }}
-                wrapperCol={{ span: 16 }}
-                style={{ maxWidth: 600 }}
-                initialValues={{ remember: true }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-              >
-                <Form.Item
-                  label=""
-                  name="comment"
-                  rules={[
-                    { required: true, message: 'Please type something...' }
-                  ]}
-                >
-                  <Input
-                    id="signInput"
-                    allowClear
-                    showCount
-                    maxLength={114}
-                    size="large"
-                    className="text-xl"
-                    addonAfter={
-                      <CoolText type="span" className="hover:cursor-pointer">
-                        {getAuthIcon}
-                      </CoolText>
-                    }
-                  />
-                </Form.Item>
-                <Button
-                  onClick={() => signOut()}
-                  className="text-gray-900 dark:text-gray-100"
-                >
-                  Sign Out
-                </Button>
-              </Form>
+              <GuestbookForm refetch={refetch} signOut={signOut} />
             )}
           </div>
           {/* guest book signs list */}
         </CoolBox>
+
         <CoolBox
           type="section"
-          className="bg-cyan-200 px-2 sm:px-4 py-2 max-w-3xl"
+          className="bg-cyan-200 px-2 sm:px-4 py-2 max-w-3xl h-screen"
         >
-          {/* list demo */}
-          {guestbooks.length ? (
-            <CoolBox type="div" className="flex justify-start gap-8 w-full">
-              <p className="w-full">
-                <CoolText type="span" className="text-xl font-semibold">
-                  kolpaja
-                </CoolText>
-                : comment Lorem ipsum, dolor sit amet consectetur adipisicing
-                elit. Id laborum quod totam nemo a
-              </p>
-              <div className="reactions flex gap-2">
-                <AiFillHeart className="text-2xl" />
-                <BiDotsVerticalRounded className="text-2xl" />
-              </div>
-            </CoolBox>
-          ) : (
-            <EmptyGuestBook />
-          )}
+          <Skeleton
+            loading={isLoadingSigns}
+            active
+            paragraph={{
+              rows: 11,
+              width: [240, 200, 160, 120, 80, 120, 160, 100, 250, 350]
+            }}
+          >
+            {/* list demo */}
+            {allSigns?.guestbooks?.data && !isError ? (
+              allSigns.guestbooks.data.map((sign) => (
+                <SignItem key={sign.id} sign={sign.attributes} />
+              ))
+            ) : (
+              <EmptyGuestBook />
+            )}
+          </Skeleton>
         </CoolBox>
       </CoolBox>
     </Container>
   );
-}
-
-export async function getServerSideProps(context) {
-  return {
-    props: {}
-  };
 }
