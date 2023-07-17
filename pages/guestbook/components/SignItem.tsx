@@ -17,7 +17,7 @@ const SignItem = ({ sign }: Props) => {
           {sign?.display_name}
           {': '}
         </CoolText>
-        {sign.comment}
+        {sign?.comment}
       </p>
       {/* TODO crud and favorites */}
       <div className="reactions flex gap-2 hidden">
