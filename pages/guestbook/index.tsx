@@ -100,7 +100,7 @@ export default function GuestBook() {
             }}
           >
             {/* list demo */}
-            {allSigns?.guestbooks?.data && !isError ? (
+            {allSigns?.guestbooks?.data?.length && !isError ? (
               allSigns.guestbooks.data.map((sign) => (
                 <SignItem key={sign.id} sign={sign.attributes} />
               ))
