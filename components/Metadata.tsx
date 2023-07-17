@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { version } from '../package.json';
+
+const version = '0.3.0';
 
 export interface IMetaData {
   title: string;

@@ -21,7 +21,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans]
+        sans: ['Inter', ...fontFamily.sans],
+        cookie: ['var(--font-cookie)', ...fontFamily.sans]
       },
       typography: (theme) => ({
         DEFAULT: {

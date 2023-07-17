@@ -1394,6 +1394,53 @@ export type CwkInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type CwkUser = {
+  __typename?: 'CwkUser';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  email: Scalars['String']['output'];
+  full_name?: Maybe<Scalars['String']['output']>;
+  img_url?: Maybe<Scalars['String']['output']>;
+  isSoftDeleted: Scalars['Boolean']['output'];
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type CwkUserEntity = {
+  __typename?: 'CwkUserEntity';
+  attributes?: Maybe<CwkUser>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type CwkUserEntityResponse = {
+  __typename?: 'CwkUserEntityResponse';
+  data?: Maybe<CwkUserEntity>;
+};
+
+export type CwkUserEntityResponseCollection = {
+  __typename?: 'CwkUserEntityResponseCollection';
+  data: Array<CwkUserEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type CwkUserFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<CwkUserFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  email?: InputMaybe<StringFilterInput>;
+  full_name?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  img_url?: InputMaybe<StringFilterInput>;
+  isSoftDeleted?: InputMaybe<BooleanFilterInput>;
+  not?: InputMaybe<CwkUserFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<CwkUserFiltersInput>>>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type CwkUserInput = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  full_name?: InputMaybe<Scalars['String']['input']>;
+  img_url?: InputMaybe<Scalars['String']['input']>;
+  isSoftDeleted?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 export type DateFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
@@ -1660,7 +1707,57 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = About | App | AromaRestaurant | Ayah | BlogAuthor | Category | CodingTech | ComponentBlocksBlock | ComponentBlocksCta | ComponentBlocksItem | ComponentBlocksPrice | ComponentBlocksProjectItem | ComponentBlocksRichSectionTitle | ComponentBlocksRichText | ComponentBlocksRichText2 | ComponentBlocksRichTextFull | ComponentBlocksSectionTitle | ComponentBusinessContact | ComponentBusinessGoogleMapLocation | ComponentBusinessHero | ComponentBusinessMenuItem | ComponentBusinessOpenHours | ComponentBusinessServiceItem | ComponentBusinessStatistics | ComponentBusinessTestimonialItem | ComponentCwkJobExperience | ComponentEcommerceCustomer | ComponentEcommercePrices | ComponentEcommerceStock | ComponentSharedFaq | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSocialNetworks | Currency | Cwk | Endry2008 | I18NLocale | IqraKitap | IqraQuran | MySpokenLanguage | Order | PointFood | Post | Product | Store | Surah | Tag | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | App | AromaRestaurant | Ayah | BlogAuthor | Category | CodingTech | ComponentBlocksBlock | ComponentBlocksCta | ComponentBlocksItem | ComponentBlocksPrice | ComponentBlocksProjectItem | ComponentBlocksRichSectionTitle | ComponentBlocksRichText | ComponentBlocksRichText2 | ComponentBlocksRichTextFull | ComponentBlocksSectionTitle | ComponentBusinessContact | ComponentBusinessGoogleMapLocation | ComponentBusinessHero | ComponentBusinessMenuItem | ComponentBusinessOpenHours | ComponentBusinessServiceItem | ComponentBusinessStatistics | ComponentBusinessTestimonialItem | ComponentCwkJobExperience | ComponentEcommerceCustomer | ComponentEcommercePrices | ComponentEcommerceStock | ComponentSharedFaq | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSocialNetworks | Currency | Cwk | CwkUser | Endry2008 | Guestbook | I18NLocale | IqraKitap | IqraQuran | MySpokenLanguage | Order | PointFood | Post | Product | Store | StrapiGoogleAuthGoogleCredential | Surah | Tag | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+
+export type Guestbook = {
+  __typename?: 'Guestbook';
+  app_code: Scalars['String']['output'];
+  comment: Scalars['String']['output'];
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  display_name: Scalars['String']['output'];
+  reactions?: Maybe<Scalars['JSON']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  visitor: Scalars['String']['output'];
+};
+
+export type GuestbookEntity = {
+  __typename?: 'GuestbookEntity';
+  attributes?: Maybe<Guestbook>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type GuestbookEntityResponse = {
+  __typename?: 'GuestbookEntityResponse';
+  data?: Maybe<GuestbookEntity>;
+};
+
+export type GuestbookEntityResponseCollection = {
+  __typename?: 'GuestbookEntityResponseCollection';
+  data: Array<GuestbookEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type GuestbookFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<GuestbookFiltersInput>>>;
+  app_code?: InputMaybe<StringFilterInput>;
+  comment?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  display_name?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<GuestbookFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<GuestbookFiltersInput>>>;
+  reactions?: InputMaybe<JsonFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  visitor?: InputMaybe<StringFilterInput>;
+};
+
+export type GuestbookInput = {
+  app_code?: InputMaybe<Scalars['String']['input']>;
+  comment?: InputMaybe<Scalars['String']['input']>;
+  display_name?: InputMaybe<Scalars['String']['input']>;
+  reactions?: InputMaybe<Scalars['JSON']['input']>;
+  visitor?: InputMaybe<Scalars['String']['input']>;
+};
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -1829,7 +1926,9 @@ export type Mutation = {
   createCategory?: Maybe<CategoryEntityResponse>;
   createCodingTech?: Maybe<CodingTechEntityResponse>;
   createCurrency?: Maybe<CurrencyEntityResponse>;
+  createCwkUser?: Maybe<CwkUserEntityResponse>;
   createEndry2008Localization?: Maybe<Endry2008EntityResponse>;
+  createGuestbook?: Maybe<GuestbookEntityResponse>;
   createMySpokenLanguage?: Maybe<MySpokenLanguageEntityResponse>;
   createOrder?: Maybe<OrderEntityResponse>;
   createPointFoodLocalization?: Maybe<PointFoodEntityResponse>;
@@ -1852,7 +1951,9 @@ export type Mutation = {
   deleteCodingTech?: Maybe<CodingTechEntityResponse>;
   deleteCurrency?: Maybe<CurrencyEntityResponse>;
   deleteCwk?: Maybe<CwkEntityResponse>;
+  deleteCwkUser?: Maybe<CwkUserEntityResponse>;
   deleteEndry2008?: Maybe<Endry2008EntityResponse>;
+  deleteGuestbook?: Maybe<GuestbookEntityResponse>;
   deleteIqraKitap?: Maybe<IqraKitapEntityResponse>;
   deleteIqraQuran?: Maybe<IqraQuranEntityResponse>;
   deleteMySpokenLanguage?: Maybe<MySpokenLanguageEntityResponse>;
@@ -1861,6 +1962,7 @@ export type Mutation = {
   deletePost?: Maybe<PostEntityResponse>;
   deleteProduct?: Maybe<ProductEntityResponse>;
   deleteStore?: Maybe<StoreEntityResponse>;
+  deleteStrapiGoogleAuthGoogleCredential?: Maybe<StrapiGoogleAuthGoogleCredentialEntityResponse>;
   deleteSurah?: Maybe<SurahEntityResponse>;
   deleteTag?: Maybe<TagEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -1889,8 +1991,10 @@ export type Mutation = {
   updateCodingTech?: Maybe<CodingTechEntityResponse>;
   updateCurrency?: Maybe<CurrencyEntityResponse>;
   updateCwk?: Maybe<CwkEntityResponse>;
+  updateCwkUser?: Maybe<CwkUserEntityResponse>;
   updateEndry2008?: Maybe<Endry2008EntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
+  updateGuestbook?: Maybe<GuestbookEntityResponse>;
   updateIqraKitap?: Maybe<IqraKitapEntityResponse>;
   updateIqraQuran?: Maybe<IqraQuranEntityResponse>;
   updateMySpokenLanguage?: Maybe<MySpokenLanguageEntityResponse>;
@@ -1899,6 +2003,7 @@ export type Mutation = {
   updatePost?: Maybe<PostEntityResponse>;
   updateProduct?: Maybe<ProductEntityResponse>;
   updateStore?: Maybe<StoreEntityResponse>;
+  updateStrapiGoogleAuthGoogleCredential?: Maybe<StrapiGoogleAuthGoogleCredentialEntityResponse>;
   updateSurah?: Maybe<SurahEntityResponse>;
   updateTag?: Maybe<TagEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -1953,10 +2058,20 @@ export type MutationCreateCurrencyArgs = {
 };
 
 
+export type MutationCreateCwkUserArgs = {
+  data: CwkUserInput;
+};
+
+
 export type MutationCreateEndry2008LocalizationArgs = {
   data?: InputMaybe<Endry2008Input>;
   id?: InputMaybe<Scalars['ID']['input']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreateGuestbookArgs = {
+  data: GuestbookInput;
 };
 
 
@@ -2052,8 +2167,18 @@ export type MutationDeleteCurrencyArgs = {
 };
 
 
+export type MutationDeleteCwkUserArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationDeleteEndry2008Args = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeleteGuestbookArgs = {
+  id: Scalars['ID']['input'];
 };
 
 
@@ -2204,6 +2329,12 @@ export type MutationUpdateCwkArgs = {
 };
 
 
+export type MutationUpdateCwkUserArgs = {
+  data: CwkUserInput;
+  id: Scalars['ID']['input'];
+};
+
+
 export type MutationUpdateEndry2008Args = {
   data: Endry2008Input;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
@@ -2213,6 +2344,12 @@ export type MutationUpdateEndry2008Args = {
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID']['input'];
   info?: InputMaybe<FileInfoInput>;
+};
+
+
+export type MutationUpdateGuestbookArgs = {
+  data: GuestbookInput;
+  id: Scalars['ID']['input'];
 };
 
 
@@ -2258,6 +2395,11 @@ export type MutationUpdateProductArgs = {
 
 export type MutationUpdateStoreArgs = {
   data: StoreInput;
+};
+
+
+export type MutationUpdateStrapiGoogleAuthGoogleCredentialArgs = {
+  data: StrapiGoogleAuthGoogleCredentialInput;
 };
 
 
@@ -2693,7 +2835,11 @@ export type Query = {
   currencies?: Maybe<CurrencyEntityResponseCollection>;
   currency?: Maybe<CurrencyEntityResponse>;
   cwk?: Maybe<CwkEntityResponse>;
+  cwkUser?: Maybe<CwkUserEntityResponse>;
+  cwkUsers?: Maybe<CwkUserEntityResponseCollection>;
   endry2008?: Maybe<Endry2008EntityResponse>;
+  guestbook?: Maybe<GuestbookEntityResponse>;
+  guestbooks?: Maybe<GuestbookEntityResponseCollection>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   iqraKitap?: Maybe<IqraKitapEntityResponse>;
@@ -2709,6 +2855,7 @@ export type Query = {
   product?: Maybe<ProductEntityResponse>;
   products?: Maybe<ProductEntityResponseCollection>;
   store?: Maybe<StoreEntityResponse>;
+  strapiGoogleAuthGoogleCredential?: Maybe<StrapiGoogleAuthGoogleCredentialEntityResponse>;
   surah?: Maybe<SurahEntityResponse>;
   surahs?: Maybe<SurahEntityResponseCollection>;
   tag?: Maybe<TagEntityResponse>;
@@ -2825,9 +2972,33 @@ export type QueryCwkArgs = {
 };
 
 
+export type QueryCwkUserArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryCwkUsersArgs = {
+  filters?: InputMaybe<CwkUserFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
 export type QueryEndry2008Args = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryGuestbookArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryGuestbooksArgs = {
+  filters?: InputMaybe<GuestbookFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -2912,6 +3083,11 @@ export type QueryProductsArgs = {
 
 
 export type QueryStoreArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryStrapiGoogleAuthGoogleCredentialArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
 
@@ -3018,6 +3194,36 @@ export type StoreInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   seo?: InputMaybe<ComponentSharedSeoInput>;
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type StrapiGoogleAuthGoogleCredential = {
+  __typename?: 'StrapiGoogleAuthGoogleCredential';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  google_client_id: Scalars['String']['output'];
+  google_client_secret: Scalars['String']['output'];
+  google_redirect_url: Scalars['String']['output'];
+  google_scopes: Scalars['JSON']['output'];
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type StrapiGoogleAuthGoogleCredentialEntity = {
+  __typename?: 'StrapiGoogleAuthGoogleCredentialEntity';
+  attributes?: Maybe<StrapiGoogleAuthGoogleCredential>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type StrapiGoogleAuthGoogleCredentialEntityResponse = {
+  __typename?: 'StrapiGoogleAuthGoogleCredentialEntityResponse';
+  data?: Maybe<StrapiGoogleAuthGoogleCredentialEntity>;
+};
+
+export type StrapiGoogleAuthGoogleCredentialInput = {
+  google_client_id?: InputMaybe<Scalars['String']['input']>;
+  google_client_secret?: InputMaybe<Scalars['String']['input']>;
+  google_redirect_url?: InputMaybe<Scalars['String']['input']>;
+  google_scopes?: InputMaybe<Scalars['JSON']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type StringFilterInput = {
@@ -3542,6 +3748,14 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type GetGuestBookVariables = Exact<{
+  appCode: Scalars['String']['input'];
+  pageSize?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetGuestBook = { __typename?: 'Query', guestbooks?: { __typename?: 'GuestbookEntityResponseCollection', data: Array<{ __typename?: 'GuestbookEntity', id?: string | null, attributes?: { __typename?: 'Guestbook', comment: string, app_code: string, reactions?: any | null, visitor: string, display_name: string } | null }>, meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number } } } | null };
+
 export type GetPageDataVariables = Exact<{
   publicationState?: InputMaybe<PublicationState>;
 }>;
@@ -3550,6 +3764,71 @@ export type GetPageDataVariables = Exact<{
 export type GetPageData = { __typename?: 'Query', cwk?: { __typename?: 'CwkEntityResponse', data?: { __typename?: 'CwkEntity', id?: string | null, attributes?: { __typename?: 'Cwk', title?: string | null, description?: string | null, about_me?: string | null, my_developed_apps?: { __typename?: 'AppRelationResponseCollection', data: Array<{ __typename?: 'AppEntity', attributes?: { __typename?: 'App', name?: string | null, description?: string | null, slug?: string | null, isLive?: boolean | null, type?: Enum_App_Type | null, coding_techs?: { __typename?: 'CodingTechRelationResponseCollection', data: Array<{ __typename?: 'CodingTechEntity', attributes?: { __typename?: 'CodingTech', label?: string | null, react_icons_string: string } | null }> } | null, CTA?: Array<{ __typename?: 'ComponentBlocksCta', id: string, title?: string | null, href?: string | null, target?: Enum_Componentblockscta_Target | null, subtitle?: string | null } | null> | null, img?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', alternativeText?: string | null, url: string, formats?: any | null } | null } | null } | null } | null }> } | null, social_networks?: Array<{ __typename?: 'ComponentSharedSocialNetworks', id: string, name?: string | null, showOnPage: boolean, href?: string | null, display_name?: string | null, icon: string } | null> | null, my_experience?: Array<{ __typename?: 'ComponentCwkJobExperience', id: string, company?: string | null, position?: string | null, started_date?: any | null, end_date?: any | null, isCurrent: boolean, description?: string | null, techs_used?: string | null, icon?: string | null, color_hashtag?: string | null } | null> | null } | null } | null } | null };
 
 
+export const GetGuestBookDocument = `
+    query getGuestBook($appCode: String!, $pageSize: Int = 100) {
+  guestbooks(
+    filters: {app_code: {eq: $appCode}}
+    pagination: {pageSize: $pageSize}
+  ) {
+    data {
+      id
+      attributes {
+        comment
+        app_code
+        reactions
+        visitor
+        display_name
+      }
+    }
+    meta {
+      pagination {
+        total
+        page
+        pageSize
+      }
+    }
+  }
+}
+    `;
+export const useGetGuestBook = <
+      TData = GetGuestBook,
+      TError = unknown
+    >(
+      client: GraphQLClient,
+      variables: GetGuestBookVariables,
+      options?: UseQueryOptions<GetGuestBook, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useQuery<GetGuestBook, TError, TData>(
+      ['getGuestBook', variables],
+      fetcher<GetGuestBook, GetGuestBookVariables>(client, GetGuestBookDocument, variables, headers),
+      options
+    );
+
+useGetGuestBook.getKey = (variables: GetGuestBookVariables) => ['getGuestBook', variables];
+;
+
+export const useInfiniteGetGuestBook = <
+      TData = GetGuestBook,
+      TError = unknown
+    >(
+      pageParamKey: keyof GetGuestBookVariables,
+      client: GraphQLClient,
+      variables: GetGuestBookVariables,
+      options?: UseInfiniteQueryOptions<GetGuestBook, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useInfiniteQuery<GetGuestBook, TError, TData>(
+      ['getGuestBook.infinite', variables],
+      (metaData) => fetcher<GetGuestBook, GetGuestBookVariables>(client, GetGuestBookDocument, {...variables, ...(metaData.pageParam ?? {})}, headers)(),
+      options
+    );
+
+
+useInfiniteGetGuestBook.getKey = (variables: GetGuestBookVariables) => ['getGuestBook.infinite', variables];
+;
+
+useGetGuestBook.fetcher = (client: GraphQLClient, variables: GetGuestBookVariables, headers?: RequestInit['headers']) => fetcher<GetGuestBook, GetGuestBookVariables>(client, GetGuestBookDocument, variables, headers);
 export const GetPageDataDocument = `
     query getPageData($publicationState: PublicationState = LIVE) {
   cwk(publicationState: $publicationState) {
