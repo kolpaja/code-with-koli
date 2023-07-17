@@ -5,7 +5,7 @@ import type {
 } from 'next';
 import { getProviders, signIn } from 'next-auth/react';
 import { getServerSession } from 'next-auth/next';
-import { options } from '../api/auth/[...nextauth]';
+import { options } from './[...nextauth]';
 import CoolBox from 'components/cool-ui/CoolBox';
 import animatedSvg from 'assets/illustrations/animated/animated-login.svg';
 import Image from 'next/image';
@@ -37,17 +37,19 @@ export default function SignIn({
         <CoolText type="h1" className="text-center text-xl sm:text-3xl">
           Welcome To Code With Koli
         </CoolText>
-        {Object.values(providers).map((provider) => (
-          <div key={provider.name}>
-            <Button
-              className="flex items-center"
-              icon={<FcGoogle />}
-              onClick={() => signIn(provider.id)}
-            >
-              Continue sign in with {provider.name}
-            </Button>
-          </div>
-        ))}
+        {providers !== null &&
+          providers !== undefined &&
+          Object.values(providers).map((provider) => (
+            <div key={provider.name}>
+              <Button
+                className="flex items-center"
+                icon={<FcGoogle />}
+                onClick={() => signIn(provider.id)}
+              >
+                Continue sign in with {provider.name}
+              </Button>
+            </div>
+          ))}
       </CoolBox>
     </CoolBox>
   );

@@ -74,7 +74,7 @@ export default function GuestBook() {
             </label>
             {status === 'unauthenticated' ? (
               <Button
-                onClick={() => signIn()}
+                onClick={() => signIn('google')}
                 icon={<FcGoogle />}
                 className="flex items-center text-lg text-gray-900 dark:text-gray-100"
               >

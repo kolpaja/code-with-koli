@@ -22,9 +22,6 @@ export const options: NextAuthOptions = {
   jwt: {
     secret: process.env.NEXTAUTH_SECRET
   },
-  pages:{
-    signIn:'auth/signin' 
-  },
   debug: true,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
