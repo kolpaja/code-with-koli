@@ -19,17 +19,17 @@ const CodeWithKoli = (props: Props) => {
         <CoolText type="h1" className="text-center text-lg sm:text-2xl">
           My Programming road map timeline
         </CoolText>
-        <CoolText type="h1" className="text-center text-lg sm:text-2xl my-8">
-          coming soon...
-        </CoolText>
-
         {/* brief intro */}
         <Image
           src={fastLoading}
           width={500}
           height={300}
           alt="comming soon img"
+          className="mx-auto"
         />
+        <CoolText type="h1" className="text-center text-lg sm:text-2xl my-8">
+          coming soon...
+        </CoolText>
 
         {/* programming road-map timeline */}
       </CoolBox>

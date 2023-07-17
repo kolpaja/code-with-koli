@@ -11,6 +11,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import CoolBox from './cool-ui/CoolBox';
 import MetaData, { IMetaData } from './Metadata';
+import { message } from 'antd';
 
 interface INavItem {
   href: string;
@@ -47,6 +48,7 @@ export default function Container(props: ContainerProps) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState<Boolean>(false);
+  const [_, contextHolder] = message.useMessage();
 
   useEffect(() => {
     window.addEventListener('scroll', (e) => {
@@ -67,6 +69,8 @@ export default function Container(props: ContainerProps) {
   return (
     <CoolBox type="div" className=" overflow-x-hidden overflow-y-auto">
       <MetaData {...meta} />
+      {/* antd message api context */}
+      {contextHolder}
 
       <div className="flex flex-col justify-center px-3 sm:px-8">
         <nav className="flex items-center justify-between gap-1 w-full relative max-w-3xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">

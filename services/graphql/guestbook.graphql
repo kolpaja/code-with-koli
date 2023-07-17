@@ -1,5 +1,5 @@
 query getGuestBook($appCode: String!, $pageSize: Int = 100){
-  guestbooks(filters:{app_code: {eq: $appCode}}, pagination:{ pageSize: $pageSize}){
+  guestbooks(filters:{app_code: {eq: $appCode}}, pagination:{ pageSize: $pageSize}, sort:"createdAt:desc"){
     data{
       id
       attributes{
