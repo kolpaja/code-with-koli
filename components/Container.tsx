@@ -68,7 +68,7 @@ export default function Container(props: ContainerProps) {
     <CoolBox type="div" className=" overflow-x-hidden overflow-y-auto">
       <MetaData {...meta} />
 
-      <div className="flex flex-col justify-center px-8">
+      <div className="flex flex-col justify-center px-3 sm:px-8">
         <nav className="flex items-center justify-between gap-1 w-full relative max-w-3xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
           <a href="#skip" className="skip-nav">
             Skip to content

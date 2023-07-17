@@ -32,7 +32,7 @@ const options: NextAuthOptions = {
         token.accessToken = account.id_token;
         // save to strapi
         fetch(
-          'http://localhost:1339/api/cwk-users/auth-with-token',
+          process.env.NEXT_PUBLIC_CMS_URL + '/api/cwk-users/auth-with-token',
           {
             method: 'post',
             headers: new Headers({
@@ -41,7 +41,7 @@ const options: NextAuthOptions = {
             })
           }
         ).then(response => response.json())
-        .then( json => console.log('api/cwk-users/auth-with-token',JSON.stringify(json)))
+        .then( json => console.log('/api/cwk-users/auth-with-token',JSON.stringify(json)))
         .catch( error => console.error(error))
 
         return token;
@@ -67,11 +67,11 @@ declare module 'next-auth' {
   }
 }
 
-declare module '@auth/core/jwt' {
-  interface JWT {
-    access_token?: string;
-    expires_at: number;
-    refresh_token: string;
-    error?: 'RefreshAccessTokenError';
-  }
-}
+// declare module '@auth/core/jwt' {
+//   interface JWT {
+//     access_token?: string;
+//     expires_at: number;
+//     refresh_token: string;
+//     error?: 'RefreshAccessTokenError';
+//   }
+// }

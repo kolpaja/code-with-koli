@@ -1,0 +1,21 @@
+query getGuestBook($appCode: String!, $pageSize: Int = 100){
+  guestbooks(filters:{app_code: {eq: $appCode}}, pagination:{ pageSize: $pageSize}){
+    data{
+      id
+      attributes{
+        comment
+        app_code
+        reactions
+        visitor
+        display_name
+      }
+    }
+    meta{
+      pagination{
+        total
+        page
+        pageSize
+      }
+    }
+  }
+}
