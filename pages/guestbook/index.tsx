@@ -19,7 +19,8 @@ export default function GuestBook() {
   const { data: session, status, update } = useSession();
 
   const meta = {
-    title: 'Guestbook'
+    title: 'Guestbook',
+    description: 'Sign my guestbook, leave a comment, salute, impression'
   };
 
   // fetch guestbook signs

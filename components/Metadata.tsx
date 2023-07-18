@@ -21,7 +21,7 @@ export interface IMetaData {
 const MetaData: React.FC<IMetaData> = ({
   title = 'Portfolio',
   image = 'https://strapi-cwk.s3.eu-south-1.amazonaws.com/art_kolpaja_104d2c9ad6.jpg',
-  description = 'Front-end developer, JavaScript enthusiast, and content moderator. rising fullstack developer',
+  description = 'Front-end developer, javaScript enthusiast, rising full-stack developer',
   author = 'CWK Team',
   copyright = 'Sokol Paja',
   siteName = 'Portfolio - @Kolpaja',

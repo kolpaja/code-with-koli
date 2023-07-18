@@ -34,9 +34,14 @@ function Home({ cwk }: HomeProps) {
     my_spoken_languages
   } = cwk?.data?.attributes;
 
+  const meta = {
+    title:'Portfolio',
+    description
+  }
+
   return (
     <Suspense fallback={null}>
-      <Container>
+      <Container meta={meta}>
         <section className="flex flex-col items-start max-w-7xl w-full border-gray-200 dark:border-gray-700 mx-auto pb-16">
           <Hero />
 
