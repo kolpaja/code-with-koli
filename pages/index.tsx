@@ -35,9 +35,9 @@ function Home({ cwk }: HomeProps) {
   } = cwk?.data?.attributes;
 
   const meta = {
-    title:'Portfolio',
+    title: 'Portfolio',
     description
-  }
+  };
 
   return (
     <Suspense fallback={null}>
@@ -49,6 +49,8 @@ function Home({ cwk }: HomeProps) {
 
           {/* my developed apps  + projects */}
           <Projects projects={my_developed_apps} />
+
+          {/* guestbook intro */}
 
           <GithubStats />
 

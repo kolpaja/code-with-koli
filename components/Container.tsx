@@ -73,14 +73,14 @@ export default function Container(props: ContainerProps) {
       {contextHolder}
 
       <div className="flex flex-col justify-center px-3 sm:px-8">
-        <nav className="flex items-center justify-between gap-1 w-full relative max-w-3xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
+        <nav className="flex items-center justify-between gap-1 w-full relative max-w-3xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-4 sm:pb-8  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
           <a href="#skip" className="skip-nav">
             Skip to content
           </a>
 
           <div className="">
             <MobileMenu />
-            <ul className="hidden md:flex flex-row gap-1 items-stretch w-full">
+            <ul className="hidden  md:flex flex-row gap-1 items-stretch w-full">
               <NavItem href="/" text="Home" />
               <NavItem href="/guestbook" text="Guestbook" />
               <NavItem href="/cwk" text="CWK" />
