@@ -381,7 +381,7 @@ export const initialNodes: Node[] = [
   {
     id: 'tools',
     type: 'custom',
-    position: { x: 0, y: 600 },
+    position: { x: 0, y: 590 },
     data: {
       emoji: <GiSettingsKnobs className={iconStyleDark} />,
       name: 'Dev Tools'

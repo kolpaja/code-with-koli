@@ -1,3 +1,4 @@
+import { BiReset } from 'react-icons/bi';
 import CoolBox from 'components/cool-ui/CoolBox';
 import { useCallback, useEffect } from 'react';
 import ReactFlow, {
@@ -19,6 +20,8 @@ import CustomNode from './CustomNode';
 import DownloadBtn from './DownloadBtn';
 import { initialEdges } from './myEdges';
 import { initialNodes } from './MyNodes';
+import { Button } from 'antd';
+import { iconStyleDark } from 'services/utils/customStyles';
 
 const nodeTypes = {
   custom: CustomNode
@@ -39,8 +42,15 @@ function MyFlow() {
     [setEdges]
   );
 
-  const setViewPort = () =>
-    reactFlowInstance.setViewport({ x: 0, y: 0, zoom: 0.8 }, {});
+  const setViewPort = useCallback(
+    () => reactFlowInstance.setViewport({ x: 0, y: 0, zoom: 0.8 }, {}),
+    [reactFlowInstance]
+  );
+
+  const resetNodes = useCallback(() => {
+    setNodes(initialNodes);
+    setViewPort();
+  }, [setViewPort, setNodes]);
 
   // useEffect(() => {
   // }, [x, y, zoom]);
@@ -62,7 +72,15 @@ function MyFlow() {
         nodesConnectable={false}
       >
         <MiniMap zoomable pannable className="bg-gray-100 dark:bg-gray-700" />
-        <Controls onFitView={setViewPort} />
+        <Controls onFitView={setViewPort}>
+          <button
+            onClick={resetNodes}
+            title="Reset Map"
+            className="bg-white text-gray-900 flex justify-center items-center w-[26px] h-[20px]"
+          >
+            <BiReset className="text-lg" />
+          </button>
+        </Controls>
         <Background />
         <DownloadBtn />
       </ReactFlow>

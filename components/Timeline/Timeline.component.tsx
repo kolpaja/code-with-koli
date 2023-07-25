@@ -1,14 +1,16 @@
-import { GiJourney } from 'react-icons/gi';
-import { FC, useCallback, useEffect } from 'react';
-import styles from './Timeline.module.scss';
+import { BiStreetView } from 'react-icons/bi';
+import { FaMapMarkedAlt } from 'react-icons/fa';
+import { Timeline as AntTimeline, Grid, Image, Tag } from 'antd';
+import roadMap from 'assets/imgs/kolpaja-roadmap.png';
 import CoolBox from 'components/cool-ui/CoolBox';
-import websiteBuilder from 'assets/illustrations/website-creator-bro.svg';
-import Image from 'next/image';
-import { ComponentCwkJobExperience } from 'generated/graphql';
-import { Timeline as AntTimeline, Grid, Tag } from 'antd';
 import CoolText from 'components/cool-ui/CoolText';
-import getIcon from 'services/utils/getIcon';
+import { ComponentCwkJobExperience } from 'generated/graphql';
+import { FC, useCallback, useEffect } from 'react';
+import { GiJourney } from 'react-icons/gi';
 import { presetAntDColors } from 'services/utils/constants';
+import getIcon from 'services/utils/getIcon';
+import styles from './Timeline.module.scss';
+import Link from 'next/link';
 
 const { useBreakpoint } = Grid;
 interface TimelineProps {
@@ -87,7 +89,31 @@ const Timeline: FC<TimelineProps> = ({ experiences }) => {
         Experiences Journey
       </h2>
       <AntTimeline mode={getTimeLineMode()} items={getTimelineItems()} />
-      <Image src={websiteBuilder} alt="@kolpaja building website" />
+      {/* <Image src={websiteBuilder} alt="@kolpaja building website" /> */}
+      {/* Road Map */}
+      <Link
+        href="/cwk"
+        className="hover:text-bold text-xl mb-6 hover:underline flex justify-start"
+      >
+        <FaMapMarkedAlt className="mr-2" /> Developer Road Map
+      </Link>
+      <CoolBox
+        type="section"
+        className="w-[320px] h-[280px] sm:w-[500px] sm:h-[300px] relative overflow-hidden"
+      >
+        <Image
+          src={roadMap.src}
+          alt="kolpaja roadmap"
+          preview={{ scaleStep: 0.5 }}
+          className=" rounded-sm"
+        />
+      </CoolBox>
+      <Link
+        href="/cwk"
+        className="hover:text-bold text-sm text-gray-600 dark:text-gray-300 mt-4 hover:underline flex justify-start items-center"
+      >
+        <BiStreetView className="mr-2" /> view road map
+      </Link>
     </CoolBox>
   );
 };
