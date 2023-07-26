@@ -6,6 +6,7 @@ import {
   getTransformForBounds
 } from 'reactflow';
 import { toPng } from 'html-to-image';
+import { useTheme } from 'next-themes';
 
 function downloadImage(dataUrl) {
   const a = document.createElement('a');
@@ -20,6 +21,8 @@ const imageHeight = 768;
 
 function DownloadButton() {
   const { getNodes } = useReactFlow();
+  const { resolvedTheme } = useTheme();
+
   const onClick = () => {
     // we calculate a transform for the nodes so that all nodes are visible
     // we then overwrite the transform of the `.react-flow__viewport` element
@@ -34,12 +37,13 @@ function DownloadButton() {
     );
 
     toPng(document.querySelector('.react-flow__viewport') as HTMLElement, {
-      backgroundColor: '#fff',
+      backgroundColor: resolvedTheme === 'dark' ? '#111827' : '#f3f4f6',
       width: imageWidth,
       height: imageHeight,
       style: {
         width: imageWidth as any,
         height: imageHeight as any,
+        color: resolvedTheme === 'dark' ? '#f3f4f6' : '#111827',
         transform: `translate(${transform[0]}px, ${transform[1]}px) scale(${transform[2]})`
       }
     }).then(downloadImage);

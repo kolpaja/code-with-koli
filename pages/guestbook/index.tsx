@@ -42,8 +42,10 @@ export default function GuestBook() {
       );
     } else {
       return (
-        <CoolText type="h4" className="flex gap-1">
-          Sing my Guest Book, submit your <TbMessage2Code /> feedback
+        <CoolText type="h4" className="">
+          Sing my Guest Book,
+          <br className="flex sm:hidden" /> submit your
+          <TbMessage2Code className="inline-block mx-1" /> feedback
         </CoolText>
       );
     }

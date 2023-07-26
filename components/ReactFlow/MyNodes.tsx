@@ -45,7 +45,7 @@ export const initialNodes: Node[] = [
       emoji: <CgCodeSlash className={iconStyleDark} />,
       name: 'Front-End Techs'
     },
-    targetPosition: Position.Left,
+    targetPosition: Position.Right,
     sourcePosition: Position.Right
   },
   {
@@ -386,7 +386,7 @@ export const initialNodes: Node[] = [
       emoji: <GiSettingsKnobs className={iconStyleDark} />,
       name: 'Dev Tools'
     },
-    targetPosition: Position.Left,
+    targetPosition: Position.Right,
     sourcePosition: Position.Right
   },
   {
