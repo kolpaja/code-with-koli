@@ -59,7 +59,7 @@ const GuestbookForm = ({ refetch, signOut }: Props) => {
       comment: values.comment,
       appCode
     };
-    console.log('Success:', commentSubmitData, process.env.NEXT_PUBLIC_CMS_URL);
+    // console.log('Success:', commentSubmitData, process.env.NEXT_PUBLIC_CMS_URL);
     const result = await axios(
       process.env.NEXT_PUBLIC_CMS_URL + '/api/guestbook/sign-guestbook',
       {
@@ -72,7 +72,7 @@ const GuestbookForm = ({ refetch, signOut }: Props) => {
         }
       }
     );
-    console.log('result', { result });
+    // console.log('result', { result });
     if (result.status === 200) {
       successForm();
       refetch();

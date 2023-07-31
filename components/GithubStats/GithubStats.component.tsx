@@ -21,7 +21,7 @@ const wakaurl =
   'https://github-readme-stats.vercel.app/api/wakatime?username=kolpaja&custom_title=Coding%20Time%20Stats%20since%207-July-2023&theme=transparent';
 
 const GithubStats: FC<GithubStatsProps> = () => {
-  const options = `&show_icons=true&theme=transparent&hide=issues&show=[]&include_all_commits=true&rank_icon=github`;
+  const options = `&show_icons=true&theme=transparent&hide=issues&show=[]&rank_icon=github`;
 
   return (
     <CoolBox type="section" className={styles.githubStatsWrapper}>

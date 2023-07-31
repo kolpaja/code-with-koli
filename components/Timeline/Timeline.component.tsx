@@ -24,12 +24,8 @@ const timeLineItem = (item: ComponentCwkJobExperience) => (
   >
     {/* header */}
     <CoolText type="h1" className="text:lg sm:text-xl font-bold">
-      @{item.company} -{' '}
-      {item.isCurrent ? (
-        <Tag color="success">current</Tag>
-      ) : (
-        <Tag color="warning">worked</Tag>
-      )}
+      @{item.company}{' '}
+      {item.isCurrent ? <Tag color="success">current</Tag> : null}
     </CoolText>
 
     {/* description */}

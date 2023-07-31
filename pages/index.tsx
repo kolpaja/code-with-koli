@@ -13,6 +13,7 @@ import { graphQLClient, queryClient } from 'services/queryClient';
 import { Projects } from 'components/Projects';
 import { AboutMe } from '../components/AboutMe/AboutMe.component';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import GuestBookLink from 'components/GuestBookLink';
 
 type HomeProps = {
   cwk: CwkEntityResponse;
@@ -51,6 +52,7 @@ function Home({ cwk }: HomeProps) {
           <Projects projects={my_developed_apps} />
 
           {/* guestbook intro */}
+          <GuestBookLink />
 
           <GithubStats />
 

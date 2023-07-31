@@ -103,7 +103,7 @@ export default function Container(props: ContainerProps) {
             type="button"
             className={cn(
               isScrolled ? 'fixed bottom-5 md:top-5 right-4 z-50' : 'relative',
-              'w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300 dark:shadow-md dark:shadow-cyan-500 dark:rounded-full  transition-all'
+              'w-9 h-9 bg-gray-200 dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300 dark:shadow-md dark:shadow-cyan-800 rounded-full  transition-all'
             )}
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')

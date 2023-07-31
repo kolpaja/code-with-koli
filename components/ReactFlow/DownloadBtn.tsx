@@ -52,7 +52,7 @@ function DownloadButton() {
   return (
     <Panel position="top-right">
       <button
-        className="ring-2 ring-cyan-400 px-2 py-1 rounded-lg bg-gray-100 dark:bg-gray-600 dark:hover:bg-cyan-600 hover:bg-cyan-500 hover:text-white active:translate-y-1"
+        className="hidden sm:block ring-2 ring-cyan-400 px-2 py-1 rounded-lg bg-gray-100 dark:bg-gray-600 dark:hover:bg-cyan-600 hover:bg-cyan-500 hover:text-white active:translate-y-1"
         onClick={onClick}
       >
         Download Image

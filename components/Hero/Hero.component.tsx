@@ -43,7 +43,7 @@ const Hero: FC<HeroProps> = () => {
       {/* coder illustration */}
       <Image
         src={coder}
-        alt="vercion control coder @kolpaja"
+        alt="version control coder @kolpaja"
         width={400}
         height={300}
         className="hidden md:flex absolute left-0 top-60"
@@ -67,18 +67,21 @@ const Hero: FC<HeroProps> = () => {
         </CoolText>
         <CoolText
           type="h2"
-          className=" gradientText text:lg md:text-xl underline decoration-teal-500 tracking-wide font-medium"
+          className=" gradientText select-none text:lg md:text-xl underline decoration-teal-500 tracking-wide font-medium"
         >
           building amazing apps
         </CoolText>
       </CoolBox>
 
       {/* right */}
-      <CoolBox type="div" className="relative min-w-[375px]  p-8  md:p-16">
+      <CoolBox
+        type="div"
+        className="relative min-w-[375px]  p-8 pb-20  md:p-16"
+      >
         {/* img dev */}
         <CoolBox type="div" className="relative h-[200px]">
           <Image
-            className="absolute -top-8 md:top-298 left-0 shadow-lg shadow-cyan-300 rounded-3xl z-10 skew-x-6 skew-y-6"
+            className="absolute -top-6 md:top-298 left-0 shadow-lg shadow-cyan-300 rounded-3xl z-10 "
             src={webdev}
             width={300}
             height={200}
@@ -86,7 +89,7 @@ const Hero: FC<HeroProps> = () => {
           />
           {/* img profile */}
           <Image
-            className="absolute top-24 md:top-10 -left-4 md:left-28 z-20  rounded-full ring-2 ring-cyan-600 shadow-lg shadow-cyan-600 skew-x-3 md:-skew-x-6 skew-y-3 md:-skew-y-6 origin-[93%_95%]"
+            className="absolute top-32 md:top-10 left-0 md:left-28 z-20  rounded-full ring-2 ring-cyan-600 shadow-lg shadow-cyan-600"
             src={kolpajaProfileImg}
             width={300}
             height={200}
@@ -103,14 +106,14 @@ const Hero: FC<HeroProps> = () => {
       </CoolBox>
 
       {/* bounce arrow down */}
-      <Link
+      {/* <Link
         href="#timeline"
         className="absolute left-1/2 bottom-1/4 md:top-3/4 "
       >
         {!isScrolled && (
           <BsArrowDownCircle className="text-gray-900 dark:text-gray-100 text-3xl animate-bounce hover:animate-spin" />
         )}
-      </Link>
+      </Link> */}
     </CoolBox>
   );
 };

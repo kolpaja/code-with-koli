@@ -66,26 +66,26 @@ html {
 }
 
 .gradientText {
-  background: #0ea8cf;
+  background: #1748e9;
   background: -webkit-linear-gradient(
     to right,
     #0ea8cf 18%,
-    #b513cf 50%,
-    #24f8ff 50%,
+    #520681 50%,
+    #a312cf 50%,
     #0e4fcf 88%
   );
   background: -moz-linear-gradient(
     to right,
     #0ea8cf 18%,
-    #b513cf 50%,
-    #24f8ff 50%,
+    #520681 50%,
+    #a312cf 50%,
     #0e4fcf 88%
   );
   background: linear-gradient(
     to right,
     #0ea8cf 18%,
-    #b513cf 50%,
-    #24f8ff 50%,
+    #520681 50%,
+    #a312cf 50%,
     #0e4fcf 88%
   );
   -webkit-background-clip: text;
@@ -114,6 +114,7 @@ html {
 .ant-timeline .ant-timeline-item-head-custom{
   padding: 0;
   margin: 0;
+  font-size:36px;
 }
 
 .ant-timeline-item-tail{
@@ -121,6 +122,7 @@ html {
 }
 .ant-timeline.ant-timeline-alternate .ant-timeline-item-head{
   border-radius: 100% !important;
+  font-size:36px;
 }
 
 .css-blurry-gradient {
