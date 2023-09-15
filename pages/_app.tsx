@@ -10,7 +10,7 @@ import 'nprogress/nprogress.css';
 import { useEffect } from 'react';
 import 'styles/global.scss';
 import cn from 'classnames';
-// import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 
 const interVariable = Inter();
 
@@ -71,7 +71,7 @@ export default function App({
         <QueryClientProvider client={queryClient}>
           <main className={cn(interVariable.className, cookieFont.variable)}>
             <Component {...pageProps} />
-            {/* <Analytics /> */}
+            <Analytics />
           </main>
           <ReactQueryDevtools />
         </QueryClientProvider>
