@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start",
     "plop": "plop",
     "lint": "next lint",
@@ -30,6 +31,7 @@
     "html-to-image": "^1.11.11",
     "next": "13.0.5",
     "next-auth": "^4.22.1",
+    "next-sitemap": "^4.2.3",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",
     "pg": "^8.11.1",
