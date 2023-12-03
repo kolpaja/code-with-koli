@@ -1,0 +1,19 @@
+query getPageData($publicationState: PublicationState = LIVE) {
+  cwk(publicationState: $publicationState) {
+    data {
+      id
+      attributes {
+        title
+        description
+        social_networks {
+          id
+          name
+          showOnPage
+          href
+          display_name
+          icon
+        }
+      }
+    }
+  }
+}

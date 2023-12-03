@@ -15,7 +15,7 @@ type ProjectCardProps = {
 const ProjectCard = ({ project }: ProjectCardProps) => (
   <CoolBox
     type="div"
-    className="flex flex-col sm:flex-col md:flex-row border-2 rounded-md border-gray-900 dark:border-gray-300 shadow-md shadow-cyan-500 w-[350px] md:w-full h-[450px] md:h-[280px] p-2 gap-2"
+    className="flex flex-col sm:flex-col md:flex-row border-2 rounded-md border-gray-900 dark:border-gray-300 shadow-md shadow-cyan-500 w-[350px] md:w-full h-[450px] md:h-[280px] p-2 md:p-4 gap-2 md:gap-4"
   >
     {/* img*/}
     <div className="w-full md:w-1/2 overflow-hidden relative h-full rounded-md ring-1 ring-cyan-600">
@@ -75,7 +75,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
         <AiOutlineAppstore /> My Projects
       </h2>
 
-      <div className="grid grid-flow-row  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2  my-4 gap-6">
+      <div className="grid grid-flow-row  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2  my-4 gap-6 md:gap-10">
         {projects.data.map((project: AppEntity) => (
           <ProjectCard
             key={project?.attributes?.slug}

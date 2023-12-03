@@ -14,6 +14,7 @@ import { Projects } from 'components/Projects';
 import { AboutMe } from '../components/AboutMe/AboutMe.component';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import GuestBookLink from 'components/GuestBookLink';
+import { BuyMeCoffee } from 'components/BuyMeCoffee';
 
 type HomeProps = {
   cwk: CwkEntityResponse;
@@ -61,6 +62,8 @@ function Home({ cwk }: HomeProps) {
           {/* personal touch google for this, maybe some code pens things that i enjoy doing */}
 
           <AboutMe aboutMe={about_me} />
+
+          <BuyMeCoffee />
         </section>
       </Container>
     </Suspense>

@@ -6,4 +6,5 @@ Allow: /
 Host: https://codewithkoli.com
 
 # Sitemaps
-Sitemap: https://codewithkoli.com
+Sitemap: https://codewithkoli.com/sitemap.xml
+Sitemap: https://codewithkoli.com/sitemap-0.xml

@@ -1,9 +1,15 @@
-import { FaShoppingCart } from 'react-icons/fa';
+import {
+  FaShoppingCart,
+  FaTwitch,
+  FaFirefoxBrowser,
+  FaLinkedin,
+  FaFacebook,
+  FaInstagram
+} from 'react-icons/fa';
 import { TbHomeCheck } from 'react-icons/tb';
 import { GiCat } from 'react-icons/gi';
 import { FiGithub } from 'react-icons/fi';
-import { FaFirefoxBrowser } from 'react-icons/fa';
-import { BiCodeAlt } from 'react-icons/bi';
+import { BiCodeAlt, BiLogoGmail } from 'react-icons/bi';
 import { TbSquareRoundedLetterE } from 'react-icons/tb';
 import { IoMdCodeDownload } from 'react-icons/io';
 import { BsCodeSquare } from 'react-icons/bs';
@@ -21,7 +27,12 @@ const iconsMap: Record<string, JSX.Element> = {
   website: <FaFirefoxBrowser className="text-xl" />,
   endry2008: <TbHomeCheck className="text-2xl" />,
   github: <FiGithub className="text-xl" />,
-  shopping: <FaShoppingCart className="text-2xl" />
+  shopping: <FaShoppingCart className="text-2xl" />,
+  linkedin: <FaLinkedin className="text-2xl text-blue-600" />,
+  twitch: <FaTwitch className="text-2xl" />,
+  mail: <BiLogoGmail className="text-2xl" />,
+  facebook: <FaFacebook className="text-2xl" />,
+  instagram: <FaInstagram className="text-2xl" />
 };
 export default function getIcon(iconName: string) {
   return iconsMap[iconName] ? iconsMap[iconName] : null;
