@@ -39,6 +39,12 @@ export default function Footer() {
           >
             Code With Koli
           </Link>
+          <Link
+            href="/links"
+            className="text-gray-500 hover:text-gray-600 transition"
+          >
+            Links
+          </Link>
         </div>
       </div>
 

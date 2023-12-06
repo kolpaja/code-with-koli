@@ -5,14 +5,18 @@ import Link from 'next/link';
 import buyMeCoffee from 'assets/imgs/bymecoffeeMembership.png';
 import Image from 'next/image';
 
-interface BuyMeCoffeeProps {}
+interface BuyMeCoffeeProps {
+  showTitle?: boolean;
+}
 
-const BuyMeCoffee: FC<BuyMeCoffeeProps> = () => {
+const BuyMeCoffee: FC<BuyMeCoffeeProps> = ({ showTitle = true }) => {
   return (
     <div className={styles.buyMeCoffeeWrapper}>
-      <h2 className="text-2xl md:text-4xl mb-4 md:6">
-        Offer me a Coffee ☕ or Tea 🍵
-      </h2>
+      {showTitle && (
+        <h2 className="text-2xl md:text-4xl mb-4 md:6">
+          Offer me a Coffee ☕ or Tea 🍵
+        </h2>
+      )}
       <p className="text-lg w-full text-center capitalize md:text-xl">
         click or scan the QR code
       </p>

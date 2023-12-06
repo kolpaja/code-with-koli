@@ -1,4 +1,4 @@
-query getPageData($publicationState: PublicationState = LIVE) {
+query getSocialLinks($publicationState: PublicationState = LIVE) {
   cwk(publicationState: $publicationState) {
     data {
       id

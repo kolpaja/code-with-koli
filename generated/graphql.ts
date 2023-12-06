@@ -691,10 +691,22 @@ export type ComponentBlocksRichText2 = {
   id: Scalars['ID']['output'];
 };
 
+export type ComponentBlocksRichTextFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentBlocksRichTextFiltersInput>>>;
+  light?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentBlocksRichTextFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentBlocksRichTextFiltersInput>>>;
+};
+
 export type ComponentBlocksRichTextFull = {
   __typename?: 'ComponentBlocksRichTextFull';
   id: Scalars['ID']['output'];
   rich?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentBlocksRichTextInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  light?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentBlocksSectionTitle = {
@@ -863,6 +875,32 @@ export type ComponentBusinessMenuItemInput = {
   showOnLinkTree?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type ComponentBusinessOferta = {
+  __typename?: 'ComponentBusinessOferta';
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  showOnPage: Scalars['Boolean']['output'];
+  subtitle?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  umrah_trips?: Maybe<UmrahTripRelationResponseCollection>;
+};
+
+
+export type ComponentBusinessOfertaUmrah_TripsArgs = {
+  filters?: InputMaybe<UmrahTripFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentBusinessOfertaInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  showOnPage?: InputMaybe<Scalars['Boolean']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  umrah_trips?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+};
+
 export type ComponentBusinessOpenHours = {
   __typename?: 'ComponentBusinessOpenHours';
   autumn?: Maybe<Scalars['String']['output']>;
@@ -918,6 +956,39 @@ export type ComponentBusinessServiceItemInput = {
   order?: InputMaybe<Scalars['Int']['input']>;
   showOnCard?: InputMaybe<Scalars['Boolean']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentBusinessServiceLight = {
+  __typename?: 'ComponentBusinessServiceLight';
+  content?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  iconName?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  seo?: Maybe<ComponentSharedSeo>;
+  title?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Enum_Componentbusinessservicelight_Type>;
+};
+
+export type ComponentBusinessServiceLightFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentBusinessServiceLightFiltersInput>>>;
+  content?: InputMaybe<StringFilterInput>;
+  description?: InputMaybe<StringFilterInput>;
+  iconName?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentBusinessServiceLightFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentBusinessServiceLightFiltersInput>>>;
+  seo?: InputMaybe<ComponentSharedSeoFiltersInput>;
+  title?: InputMaybe<StringFilterInput>;
+  type?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentBusinessServiceLightInput = {
+  content?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  iconName?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  seo?: InputMaybe<ComponentSharedSeoInput>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Enum_Componentbusinessservicelight_Type>;
 };
 
 export type ComponentBusinessStatistics = {
@@ -1142,6 +1213,36 @@ export type ComponentEcommerceStockInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
   sold?: InputMaybe<Scalars['Int']['input']>;
   total?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ComponentIdrizUmrahBlockUmrahPrice = {
+  __typename?: 'ComponentIdrizUmrahBlockUmrahPrice';
+  currency?: Maybe<Scalars['String']['output']>;
+  discounted_value?: Maybe<Scalars['Int']['output']>;
+  id: Scalars['ID']['output'];
+  isDiscounted: Scalars['Boolean']['output'];
+  room?: Maybe<Enum_Componentidrizumrahblockumrahprice_Room>;
+  value: Scalars['Int']['output'];
+};
+
+export type ComponentIdrizUmrahBlockUmrahPriceFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentIdrizUmrahBlockUmrahPriceFiltersInput>>>;
+  currency?: InputMaybe<StringFilterInput>;
+  discounted_value?: InputMaybe<IntFilterInput>;
+  isDiscounted?: InputMaybe<BooleanFilterInput>;
+  not?: InputMaybe<ComponentIdrizUmrahBlockUmrahPriceFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentIdrizUmrahBlockUmrahPriceFiltersInput>>>;
+  room?: InputMaybe<StringFilterInput>;
+  value?: InputMaybe<IntFilterInput>;
+};
+
+export type ComponentIdrizUmrahBlockUmrahPriceInput = {
+  currency?: InputMaybe<Scalars['String']['input']>;
+  discounted_value?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  isDiscounted?: InputMaybe<Scalars['Boolean']['input']>;
+  room?: InputMaybe<Enum_Componentidrizumrahblockumrahprice_Room>;
+  value?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ComponentSharedFaq = {
@@ -1538,11 +1639,24 @@ export enum Enum_Componentbusinessmenuitem_Category {
   Sweets = 'sweets'
 }
 
+export enum Enum_Componentbusinessservicelight_Type {
+  Kurban = 'kurban',
+  Translate = 'translate',
+  Umrah = 'umrah',
+  Visa = 'visa'
+}
+
 export enum Enum_Componentecommercecustomer_Payment_Method {
   Bank = 'bank',
   Card = 'card',
   Cash = 'cash',
   Gift = 'gift'
+}
+
+export enum Enum_Componentidrizumrahblockumrahprice_Room {
+  RoomX2 = 'roomX2',
+  RoomX3 = 'roomX3',
+  RoomX4 = 'roomX4'
 }
 
 export enum Enum_Myspokenlanguage_Level {
@@ -1565,6 +1679,26 @@ export enum Enum_Order_Status {
 export enum Enum_Surah_Revelation_Place {
   Madinah = 'madinah',
   Makkah = 'makkah'
+}
+
+export enum Enum_Umrahhotel_City {
+  Madinah = 'madinah',
+  Mecca = 'mecca'
+}
+
+export enum Enum_Umrahtrip_Month {
+  April = 'April',
+  August = 'August',
+  December = 'December',
+  February = 'February',
+  January = 'January',
+  July = 'July',
+  June = 'June',
+  March = 'March',
+  May = 'May',
+  November = 'November',
+  October = 'October',
+  September = 'September'
 }
 
 export type Endry2008 = {
@@ -1707,7 +1841,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = About | App | AromaRestaurant | Ayah | BlogAuthor | Category | CodingTech | ComponentBlocksBlock | ComponentBlocksCta | ComponentBlocksItem | ComponentBlocksPrice | ComponentBlocksProjectItem | ComponentBlocksRichSectionTitle | ComponentBlocksRichText | ComponentBlocksRichText2 | ComponentBlocksRichTextFull | ComponentBlocksSectionTitle | ComponentBusinessContact | ComponentBusinessGoogleMapLocation | ComponentBusinessHero | ComponentBusinessMenuItem | ComponentBusinessOpenHours | ComponentBusinessServiceItem | ComponentBusinessStatistics | ComponentBusinessTestimonialItem | ComponentCwkJobExperience | ComponentEcommerceCustomer | ComponentEcommercePrices | ComponentEcommerceStock | ComponentSharedFaq | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSocialNetworks | Currency | Cwk | CwkUser | Endry2008 | Guestbook | I18NLocale | IqraKitap | IqraQuran | MySpokenLanguage | Order | PointFood | Post | Product | Store | StrapiGoogleAuthGoogleCredential | Surah | Tag | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | App | AromaRestaurant | Ayah | BlogAuthor | Category | CodingTech | ComponentBlocksBlock | ComponentBlocksCta | ComponentBlocksItem | ComponentBlocksPrice | ComponentBlocksProjectItem | ComponentBlocksRichSectionTitle | ComponentBlocksRichText | ComponentBlocksRichText2 | ComponentBlocksRichTextFull | ComponentBlocksSectionTitle | ComponentBusinessContact | ComponentBusinessGoogleMapLocation | ComponentBusinessHero | ComponentBusinessMenuItem | ComponentBusinessOferta | ComponentBusinessOpenHours | ComponentBusinessServiceItem | ComponentBusinessServiceLight | ComponentBusinessStatistics | ComponentBusinessTestimonialItem | ComponentCwkJobExperience | ComponentEcommerceCustomer | ComponentEcommercePrices | ComponentEcommerceStock | ComponentIdrizUmrahBlockUmrahPrice | ComponentSharedFaq | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSocialNetworks | Currency | Cwk | CwkUser | Endry2008 | Guestbook | I18NLocale | IdrizTravelUmra | IqraKitap | IqraQuran | MySpokenLanguage | Order | PointFood | Post | Product | Store | StrapiGoogleAuthGoogleCredential | Surah | Tag | UmrahHotel | UmrahTourGuide | UmrahTrip | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Guestbook = {
   __typename?: 'Guestbook';
@@ -1817,6 +1951,43 @@ export type IdFilterInput = {
   null?: InputMaybe<Scalars['Boolean']['input']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   startsWith?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type IdrizTravelUmra = {
+  __typename?: 'IdrizTravelUmra';
+  Title?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  oferta?: Maybe<ComponentBusinessOferta>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  services?: Maybe<Array<Maybe<ComponentBusinessServiceLight>>>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type IdrizTravelUmraServicesArgs = {
+  filters?: InputMaybe<ComponentBusinessServiceLightFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type IdrizTravelUmraEntity = {
+  __typename?: 'IdrizTravelUmraEntity';
+  attributes?: Maybe<IdrizTravelUmra>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type IdrizTravelUmraEntityResponse = {
+  __typename?: 'IdrizTravelUmraEntityResponse';
+  data?: Maybe<IdrizTravelUmraEntity>;
+};
+
+export type IdrizTravelUmraInput = {
+  Title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  oferta?: InputMaybe<ComponentBusinessOfertaInput>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  services?: InputMaybe<Array<InputMaybe<ComponentBusinessServiceLightInput>>>;
 };
 
 export type IntFilterInput = {
@@ -1936,6 +2107,10 @@ export type Mutation = {
   createProduct?: Maybe<ProductEntityResponse>;
   createSurah?: Maybe<SurahEntityResponse>;
   createTag?: Maybe<TagEntityResponse>;
+  createUmrahHotel?: Maybe<UmrahHotelEntityResponse>;
+  createUmrahTourGuide?: Maybe<UmrahTourGuideEntityResponse>;
+  createUmrahTrip?: Maybe<UmrahTripEntityResponse>;
+  createUmrahTripLocalization?: Maybe<UmrahTripEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   createUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Create a new role */
@@ -1954,6 +2129,7 @@ export type Mutation = {
   deleteCwkUser?: Maybe<CwkUserEntityResponse>;
   deleteEndry2008?: Maybe<Endry2008EntityResponse>;
   deleteGuestbook?: Maybe<GuestbookEntityResponse>;
+  deleteIdrizTravelUmra?: Maybe<IdrizTravelUmraEntityResponse>;
   deleteIqraKitap?: Maybe<IqraKitapEntityResponse>;
   deleteIqraQuran?: Maybe<IqraQuranEntityResponse>;
   deleteMySpokenLanguage?: Maybe<MySpokenLanguageEntityResponse>;
@@ -1965,6 +2141,9 @@ export type Mutation = {
   deleteStrapiGoogleAuthGoogleCredential?: Maybe<StrapiGoogleAuthGoogleCredentialEntityResponse>;
   deleteSurah?: Maybe<SurahEntityResponse>;
   deleteTag?: Maybe<TagEntityResponse>;
+  deleteUmrahHotel?: Maybe<UmrahHotelEntityResponse>;
+  deleteUmrahTourGuide?: Maybe<UmrahTourGuideEntityResponse>;
+  deleteUmrahTrip?: Maybe<UmrahTripEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
@@ -1995,6 +2174,7 @@ export type Mutation = {
   updateEndry2008?: Maybe<Endry2008EntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateGuestbook?: Maybe<GuestbookEntityResponse>;
+  updateIdrizTravelUmra?: Maybe<IdrizTravelUmraEntityResponse>;
   updateIqraKitap?: Maybe<IqraKitapEntityResponse>;
   updateIqraQuran?: Maybe<IqraQuranEntityResponse>;
   updateMySpokenLanguage?: Maybe<MySpokenLanguageEntityResponse>;
@@ -2006,6 +2186,9 @@ export type Mutation = {
   updateStrapiGoogleAuthGoogleCredential?: Maybe<StrapiGoogleAuthGoogleCredentialEntityResponse>;
   updateSurah?: Maybe<SurahEntityResponse>;
   updateTag?: Maybe<TagEntityResponse>;
+  updateUmrahHotel?: Maybe<UmrahHotelEntityResponse>;
+  updateUmrahTourGuide?: Maybe<UmrahTourGuideEntityResponse>;
+  updateUmrahTrip?: Maybe<UmrahTripEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
@@ -2112,6 +2295,29 @@ export type MutationCreateTagArgs = {
 };
 
 
+export type MutationCreateUmrahHotelArgs = {
+  data: UmrahHotelInput;
+};
+
+
+export type MutationCreateUmrahTourGuideArgs = {
+  data: UmrahTourGuideInput;
+};
+
+
+export type MutationCreateUmrahTripArgs = {
+  data: UmrahTripInput;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationCreateUmrahTripLocalizationArgs = {
+  data?: InputMaybe<UmrahTripInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
 export type MutationCreateUploadFileArgs = {
   data: UploadFileInput;
 };
@@ -2214,6 +2420,22 @@ export type MutationDeleteSurahArgs = {
 
 export type MutationDeleteTagArgs = {
   id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteUmrahHotelArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteUmrahTourGuideArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteUmrahTripArgs = {
+  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -2353,6 +2575,11 @@ export type MutationUpdateGuestbookArgs = {
 };
 
 
+export type MutationUpdateIdrizTravelUmraArgs = {
+  data: IdrizTravelUmraInput;
+};
+
+
 export type MutationUpdateIqraKitapArgs = {
   data: IqraKitapInput;
 };
@@ -2412,6 +2639,25 @@ export type MutationUpdateSurahArgs = {
 export type MutationUpdateTagArgs = {
   data: TagInput;
   id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateUmrahHotelArgs = {
+  data: UmrahHotelInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateUmrahTourGuideArgs = {
+  data: UmrahTourGuideInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateUmrahTripArgs = {
+  data: UmrahTripInput;
+  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -2842,6 +3088,7 @@ export type Query = {
   guestbooks?: Maybe<GuestbookEntityResponseCollection>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  idrizTravelUmra?: Maybe<IdrizTravelUmraEntityResponse>;
   iqraKitap?: Maybe<IqraKitapEntityResponse>;
   iqraQuran?: Maybe<IqraQuranEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
@@ -2860,6 +3107,12 @@ export type Query = {
   surahs?: Maybe<SurahEntityResponseCollection>;
   tag?: Maybe<TagEntityResponse>;
   tags?: Maybe<TagEntityResponseCollection>;
+  umrahHotel?: Maybe<UmrahHotelEntityResponse>;
+  umrahHotels?: Maybe<UmrahHotelEntityResponseCollection>;
+  umrahTourGuide?: Maybe<UmrahTourGuideEntityResponse>;
+  umrahTourGuides?: Maybe<UmrahTourGuideEntityResponseCollection>;
+  umrahTrip?: Maybe<UmrahTripEntityResponse>;
+  umrahTrips?: Maybe<UmrahTripEntityResponseCollection>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   uploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -3014,6 +3267,11 @@ export type QueryI18NLocalesArgs = {
 };
 
 
+export type QueryIdrizTravelUmraArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
 export type QueryIqraKitapArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
@@ -3114,6 +3372,46 @@ export type QueryTagsArgs = {
   filters?: InputMaybe<TagFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryUmrahHotelArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryUmrahHotelsArgs = {
+  filters?: InputMaybe<UmrahHotelFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryUmrahTourGuideArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QueryUmrahTourGuidesArgs = {
+  filters?: InputMaybe<UmrahTourGuideFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryUmrahTripArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type QueryUmrahTripsArgs = {
+  filters?: InputMaybe<UmrahTripFiltersInput>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -3373,6 +3671,246 @@ export type TagInput = {
 export type TagRelationResponseCollection = {
   __typename?: 'TagRelationResponseCollection';
   data: Array<TagEntity>;
+};
+
+export type UmrahHotel = {
+  __typename?: 'UmrahHotel';
+  city: Enum_Umrahhotel_City;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  embed_location?: Maybe<Scalars['String']['output']>;
+  google_map_link?: Maybe<Scalars['String']['output']>;
+  img?: Maybe<UploadFileRelationResponseCollection>;
+  name?: Maybe<Scalars['String']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type UmrahHotelImgArgs = {
+  filters?: InputMaybe<UploadFileFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type UmrahHotelEntity = {
+  __typename?: 'UmrahHotelEntity';
+  attributes?: Maybe<UmrahHotel>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type UmrahHotelEntityResponse = {
+  __typename?: 'UmrahHotelEntityResponse';
+  data?: Maybe<UmrahHotelEntity>;
+};
+
+export type UmrahHotelEntityResponseCollection = {
+  __typename?: 'UmrahHotelEntityResponseCollection';
+  data: Array<UmrahHotelEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type UmrahHotelFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<UmrahHotelFiltersInput>>>;
+  city?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  embed_location?: InputMaybe<StringFilterInput>;
+  google_map_link?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<UmrahHotelFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<UmrahHotelFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type UmrahHotelInput = {
+  city?: InputMaybe<Enum_Umrahhotel_City>;
+  embed_location?: InputMaybe<Scalars['String']['input']>;
+  google_map_link?: InputMaybe<Scalars['String']['input']>;
+  img?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type UmrahHotelRelationResponseCollection = {
+  __typename?: 'UmrahHotelRelationResponseCollection';
+  data: Array<UmrahHotelEntity>;
+};
+
+export type UmrahTourGuide = {
+  __typename?: 'UmrahTourGuide';
+  avatar?: Maybe<UploadFileEntityResponse>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  social_networks?: Maybe<Array<Maybe<ComponentSharedSocialNetworks>>>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type UmrahTourGuideSocial_NetworksArgs = {
+  filters?: InputMaybe<ComponentSharedSocialNetworksFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type UmrahTourGuideEntity = {
+  __typename?: 'UmrahTourGuideEntity';
+  attributes?: Maybe<UmrahTourGuide>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type UmrahTourGuideEntityResponse = {
+  __typename?: 'UmrahTourGuideEntityResponse';
+  data?: Maybe<UmrahTourGuideEntity>;
+};
+
+export type UmrahTourGuideEntityResponseCollection = {
+  __typename?: 'UmrahTourGuideEntityResponseCollection';
+  data: Array<UmrahTourGuideEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type UmrahTourGuideFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<UmrahTourGuideFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<UmrahTourGuideFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<UmrahTourGuideFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  social_networks?: InputMaybe<ComponentSharedSocialNetworksFiltersInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type UmrahTourGuideInput = {
+  avatar?: InputMaybe<Scalars['ID']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  social_networks?: InputMaybe<Array<InputMaybe<ComponentSharedSocialNetworksInput>>>;
+};
+
+export type UmrahTourGuideRelationResponseCollection = {
+  __typename?: 'UmrahTourGuideRelationResponseCollection';
+  data: Array<UmrahTourGuideEntity>;
+};
+
+export type UmrahTrip = {
+  __typename?: 'UmrahTrip';
+  arriving: Scalars['Date']['output'];
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  departing: Scalars['Date']['output'];
+  description?: Maybe<ComponentBlocksRichText>;
+  image?: Maybe<UploadFileEntityResponse>;
+  isAvailable: Scalars['Boolean']['output'];
+  locale?: Maybe<Scalars['String']['output']>;
+  localizations?: Maybe<UmrahTripRelationResponseCollection>;
+  month: Enum_Umrahtrip_Month;
+  notes?: Maybe<Scalars['String']['output']>;
+  price?: Maybe<Array<Maybe<ComponentIdrizUmrahBlockUmrahPrice>>>;
+  seo?: Maybe<ComponentSharedSeo>;
+  slug: Scalars['String']['output'];
+  tags: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  umrah_hotels?: Maybe<UmrahHotelRelationResponseCollection>;
+  umrah_tour_guides?: Maybe<UmrahTourGuideRelationResponseCollection>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  year?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type UmrahTripLocalizationsArgs = {
+  filters?: InputMaybe<UmrahTripFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type UmrahTripPriceArgs = {
+  filters?: InputMaybe<ComponentIdrizUmrahBlockUmrahPriceFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type UmrahTripUmrah_HotelsArgs = {
+  filters?: InputMaybe<UmrahHotelFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type UmrahTripUmrah_Tour_GuidesArgs = {
+  filters?: InputMaybe<UmrahTourGuideFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type UmrahTripEntity = {
+  __typename?: 'UmrahTripEntity';
+  attributes?: Maybe<UmrahTrip>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type UmrahTripEntityResponse = {
+  __typename?: 'UmrahTripEntityResponse';
+  data?: Maybe<UmrahTripEntity>;
+};
+
+export type UmrahTripEntityResponseCollection = {
+  __typename?: 'UmrahTripEntityResponseCollection';
+  data: Array<UmrahTripEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type UmrahTripFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<UmrahTripFiltersInput>>>;
+  arriving?: InputMaybe<DateFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  departing?: InputMaybe<DateFilterInput>;
+  description?: InputMaybe<ComponentBlocksRichTextFiltersInput>;
+  id?: InputMaybe<IdFilterInput>;
+  isAvailable?: InputMaybe<BooleanFilterInput>;
+  locale?: InputMaybe<StringFilterInput>;
+  localizations?: InputMaybe<UmrahTripFiltersInput>;
+  month?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<UmrahTripFiltersInput>;
+  notes?: InputMaybe<StringFilterInput>;
+  or?: InputMaybe<Array<InputMaybe<UmrahTripFiltersInput>>>;
+  price?: InputMaybe<ComponentIdrizUmrahBlockUmrahPriceFiltersInput>;
+  seo?: InputMaybe<ComponentSharedSeoFiltersInput>;
+  slug?: InputMaybe<StringFilterInput>;
+  tags?: InputMaybe<StringFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  umrah_hotels?: InputMaybe<UmrahHotelFiltersInput>;
+  umrah_tour_guides?: InputMaybe<UmrahTourGuideFiltersInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+  year?: InputMaybe<IntFilterInput>;
+};
+
+export type UmrahTripInput = {
+  arriving?: InputMaybe<Scalars['Date']['input']>;
+  departing?: InputMaybe<Scalars['Date']['input']>;
+  description?: InputMaybe<ComponentBlocksRichTextInput>;
+  image?: InputMaybe<Scalars['ID']['input']>;
+  isAvailable?: InputMaybe<Scalars['Boolean']['input']>;
+  month?: InputMaybe<Enum_Umrahtrip_Month>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  price?: InputMaybe<Array<InputMaybe<ComponentIdrizUmrahBlockUmrahPriceInput>>>;
+  seo?: InputMaybe<ComponentSharedSeoInput>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  umrah_hotels?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  umrah_tour_guides?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  year?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UmrahTripRelationResponseCollection = {
+  __typename?: 'UmrahTripRelationResponseCollection';
+  data: Array<UmrahTripEntity>;
 };
 
 export type UploadFile = {
@@ -3763,6 +4301,13 @@ export type GetPageDataVariables = Exact<{
 
 export type GetPageData = { __typename?: 'Query', cwk?: { __typename?: 'CwkEntityResponse', data?: { __typename?: 'CwkEntity', id?: string | null, attributes?: { __typename?: 'Cwk', title?: string | null, description?: string | null, about_me?: string | null, my_developed_apps?: { __typename?: 'AppRelationResponseCollection', data: Array<{ __typename?: 'AppEntity', attributes?: { __typename?: 'App', name?: string | null, description?: string | null, slug?: string | null, isLive?: boolean | null, type?: Enum_App_Type | null, coding_techs?: { __typename?: 'CodingTechRelationResponseCollection', data: Array<{ __typename?: 'CodingTechEntity', attributes?: { __typename?: 'CodingTech', label?: string | null, react_icons_string: string } | null }> } | null, CTA?: Array<{ __typename?: 'ComponentBlocksCta', id: string, title?: string | null, href?: string | null, target?: Enum_Componentblockscta_Target | null, subtitle?: string | null } | null> | null, img?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', alternativeText?: string | null, url: string, formats?: any | null } | null } | null } | null } | null }> } | null, social_networks?: Array<{ __typename?: 'ComponentSharedSocialNetworks', id: string, name?: string | null, showOnPage: boolean, href?: string | null, display_name?: string | null, icon: string } | null> | null, my_experience?: Array<{ __typename?: 'ComponentCwkJobExperience', id: string, company?: string | null, position?: string | null, started_date?: any | null, end_date?: any | null, isCurrent: boolean, description?: string | null, techs_used?: string | null, icon?: string | null, color_hashtag?: string | null } | null> | null } | null } | null } | null };
 
+export type GetSocialLinksVariables = Exact<{
+  publicationState?: InputMaybe<PublicationState>;
+}>;
+
+
+export type GetSocialLinks = { __typename?: 'Query', cwk?: { __typename?: 'CwkEntityResponse', data?: { __typename?: 'CwkEntity', id?: string | null, attributes?: { __typename?: 'Cwk', title?: string | null, description?: string | null, social_networks?: Array<{ __typename?: 'ComponentSharedSocialNetworks', id: string, name?: string | null, showOnPage: boolean, href?: string | null, display_name?: string | null, icon: string } | null> | null } | null } | null } | null };
+
 
 export const GetGuestBookDocument = `
     query getGuestBook($appCode: String!, $pageSize: Int = 100) {
@@ -3938,3 +4483,63 @@ useInfiniteGetPageData.getKey = (variables?: GetPageDataVariables) => variables 
 ;
 
 useGetPageData.fetcher = (client: GraphQLClient, variables?: GetPageDataVariables, headers?: RequestInit['headers']) => fetcher<GetPageData, GetPageDataVariables>(client, GetPageDataDocument, variables, headers);
+export const GetSocialLinksDocument = `
+    query getSocialLinks($publicationState: PublicationState = LIVE) {
+  cwk(publicationState: $publicationState) {
+    data {
+      id
+      attributes {
+        title
+        description
+        social_networks {
+          id
+          name
+          showOnPage
+          href
+          display_name
+          icon
+        }
+      }
+    }
+  }
+}
+    `;
+export const useGetSocialLinks = <
+      TData = GetSocialLinks,
+      TError = unknown
+    >(
+      client: GraphQLClient,
+      variables?: GetSocialLinksVariables,
+      options?: UseQueryOptions<GetSocialLinks, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useQuery<GetSocialLinks, TError, TData>(
+      variables === undefined ? ['getSocialLinks'] : ['getSocialLinks', variables],
+      fetcher<GetSocialLinks, GetSocialLinksVariables>(client, GetSocialLinksDocument, variables, headers),
+      options
+    );
+
+useGetSocialLinks.getKey = (variables?: GetSocialLinksVariables) => variables === undefined ? ['getSocialLinks'] : ['getSocialLinks', variables];
+;
+
+export const useInfiniteGetSocialLinks = <
+      TData = GetSocialLinks,
+      TError = unknown
+    >(
+      pageParamKey: keyof GetSocialLinksVariables,
+      client: GraphQLClient,
+      variables?: GetSocialLinksVariables,
+      options?: UseInfiniteQueryOptions<GetSocialLinks, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useInfiniteQuery<GetSocialLinks, TError, TData>(
+      variables === undefined ? ['getSocialLinks.infinite'] : ['getSocialLinks.infinite', variables],
+      (metaData) => fetcher<GetSocialLinks, GetSocialLinksVariables>(client, GetSocialLinksDocument, {...variables, ...(metaData.pageParam ?? {})}, headers)(),
+      options
+    );
+
+
+useInfiniteGetSocialLinks.getKey = (variables?: GetSocialLinksVariables) => variables === undefined ? ['getSocialLinks.infinite'] : ['getSocialLinks.infinite', variables];
+;
+
+useGetSocialLinks.fetcher = (client: GraphQLClient, variables?: GetSocialLinksVariables, headers?: RequestInit['headers']) => fetcher<GetSocialLinks, GetSocialLinksVariables>(client, GetSocialLinksDocument, variables, headers);

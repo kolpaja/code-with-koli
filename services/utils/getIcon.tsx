@@ -4,7 +4,8 @@ import {
   FaFirefoxBrowser,
   FaLinkedin,
   FaFacebook,
-  FaInstagram
+  FaInstagram,
+  FaPinterest
 } from 'react-icons/fa';
 import { TbHomeCheck } from 'react-icons/tb';
 import { GiCat } from 'react-icons/gi';
@@ -24,15 +25,37 @@ const iconsMap: Record<string, JSX.Element> = {
   edilloArkevo: <TbSquareRoundedLetterE className={iconStyleTimeline} />,
   cwk: <BiCodeAlt className={iconStyleTimeline} />,
   cat: <GiCat className="text-xl" />,
-  website: <FaFirefoxBrowser className="text-xl" />,
+  website: <FaFirefoxBrowser className="text-2xl md:text-3xl" />,
   endry2008: <TbHomeCheck className="text-2xl" />,
-  github: <FiGithub className="text-xl" />,
+  github: <FiGithub className="text-2xl text-black md:text-3xl" />,
   shopping: <FaShoppingCart className="text-2xl" />,
-  linkedin: <FaLinkedin className="text-2xl text-blue-600" />,
-  twitch: <FaTwitch className="text-2xl" />,
-  mail: <BiLogoGmail className="text-2xl" />,
-  facebook: <FaFacebook className="text-2xl" />,
-  instagram: <FaInstagram className="text-2xl" />
+  linkedin: <FaLinkedin className="text-2xl md:text-3xl text-blue-600" />,
+  twitch: (
+    <FaTwitch
+      className="text-2xl md:text-3xl"
+      style={{
+        fill: 'purple'
+      }}
+    />
+  ),
+  mail: (
+    <BiLogoGmail
+      className="text-2xl md:text-3xl text-red-600 fill-red-600"
+      style={{
+        fill: '#dc2626'
+      }}
+    />
+  ),
+  facebook: <FaFacebook className="text-2xl md:text-3xl text-blue-600" />,
+  pinterest: <FaPinterest className="text-2xl md:text-3xl text-red-600" />,
+  instagram: (
+    <FaInstagram
+      className="sm:text-2xl md:text-3xl lg:text-3xl text-red-600 fill-red-600"
+      style={{
+        fill: '#be185d'
+      }}
+    />
+  )
 };
 export default function getIcon(iconName: string) {
   return iconsMap[iconName] ? iconsMap[iconName] : null;
